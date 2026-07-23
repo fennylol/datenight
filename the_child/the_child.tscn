@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c5wp577lftwwe"]
+
+[ext_resource type="Script" uid="uid://0182w1pbsrsu" path="res://the_child/the_child.gd" id="1_jl4h2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r2f68"]
+radius = 0.2
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_invmk"]
+radius = 0.2
+height = 1.0
+
+[node name="TheChild" type="CharacterBody3D" unique_id=1674126972]
+script = ExtResource("1_jl4h2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1647414109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="pill" type="MeshInstance3D" parent="." unique_id=1463893016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_r2f68")
+
+[node name="pill_collision" type="CollisionShape3D" parent="." unique_id=85762754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_invmk")
