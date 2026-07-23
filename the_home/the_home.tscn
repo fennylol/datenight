@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dkpwxgc8fnss7"]
 
+[ext_resource type="Script" uid="uid://b7fjnqxikkj7x" path="res://the_home/the_home.gd" id="1_2cjki"]
+[ext_resource type="PackedScene" uid="uid://sw1p0hugnybq" path="res://the_home/livingroom.tscn" id="1_bi54r"]
 [ext_resource type="PackedScene" uid="uid://c5wp577lftwwe" path="res://the_child/the_child.tscn" id="1_f33rb"]
-[ext_resource type="Texture2D" uid="uid://dc0xcn0y8whcl" path="res://icon.png" id="2_bi54r"]
+[ext_resource type="PackedScene" uid="uid://0qlh6p1g5n5g" path="res://the_home/hallway.tscn" id="3_odmkw"]
+[ext_resource type="PackedScene" uid="uid://hdnq3edekpcu" path="res://the_home/kitchen.tscn" id="4_0wrxk"]
+[ext_resource type="PackedScene" uid="uid://bkt3g8x2rroyo" path="res://the_home/playroom.tscn" id="5_2cjki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odmkw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,19 +19,8 @@ background_mode = 2
 sky = SubResource("Sky_y1tlc")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cjki"]
-albedo_texture = ExtResource("2_bi54r")
-uv1_scale = Vector3(2, 2, 2)
-uv1_offset = Vector3(0.5, 0, 0)
-texture_filter = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_bsava"]
-size = Vector3(30, 1, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bsava"]
-size = Vector3(30, 1, 30)
-
 [node name="DaHouse" type="Node3D" unique_id=1201681597]
+script = ExtResource("1_2cjki")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=928236890]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -38,12 +31,13 @@ environment = SubResource("Environment_0wrxk")
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
 
-[node name="floor" type="StaticBody3D" parent="." unique_id=538830730]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="Livingroom" parent="." unique_id=711642693 instance=ExtResource("1_bi54r")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=236007967]
-material_override = SubResource("StandardMaterial3D_2cjki")
-mesh = SubResource("BoxMesh_bsava")
+[node name="Hallway" parent="." unique_id=232173153 instance=ExtResource("3_odmkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=975879377]
-shape = SubResource("BoxShape3D_bsava")
+[node name="Kitchen" parent="." unique_id=2062142882 instance=ExtResource("4_0wrxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 6.5)
+
+[node name="Playroom" parent="." unique_id=2021670826 instance=ExtResource("5_2cjki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -16.5)
