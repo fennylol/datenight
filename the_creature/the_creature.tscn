@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dbkcvq4fhuc0p"]
+
+[ext_resource type="Script" uid="uid://dpw8i4o3jh3g5" path="res://the_creature/the_creature.gd" id="1_r73wq"]
+[ext_resource type="Texture2D" uid="uid://dduey3jktrxsa" path="res://the_creature/creature.png" id="2_cjumy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bsava"]
+radius = 0.001
+height = 1.5
+
+[node name="TheCreature" type="CharacterBody3D" unique_id=738065402]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_r73wq")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1904408976]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_cjumy")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=403023630]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1900019993]
+shape = SubResource("CapsuleShape3D_bsava")

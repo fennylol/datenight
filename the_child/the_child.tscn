@@ -10,6 +10,10 @@ height = 1.0
 radius = 0.2
 height = 1.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bsava"]
+height = 1.0
+radius = 0.75
+
 [node name="TheChild" type="CharacterBody3D" unique_id=1674126972]
 script = ExtResource("1_jl4h2")
 
@@ -23,3 +27,9 @@ mesh = SubResource("CapsuleMesh_r2f68")
 [node name="pill_collision" type="CollisionShape3D" parent="." unique_id=85762754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_invmk")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1763173288]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1803183736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5632324, 0)
+shape = SubResource("CylinderShape3D_bsava")
