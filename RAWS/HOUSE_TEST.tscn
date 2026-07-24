@@ -13,44 +13,44 @@
 
 [node name="HouseTest" type="Node3D" unique_id=1518724158]
 
-[node name="date_night_house" type="Node3D" parent="." unique_id=299786256]
+[node name="date_night_house_02" type="Node3D" parent="." unique_id=2106549817]
 
-[node name="CLOSET_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=31103282]
+[node name="CLOSET_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=34869490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 25.5)
 mesh = ExtResource("1_si4eq")
 
-[node name="DININGROOM_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=1735989722]
+[node name="DININGROOM_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1373926558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 19.5)
 mesh = ExtResource("2_fh0hm")
 
-[node name="ENTRANCE_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=829865371]
+[node name="ENTRANCE_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=2066419820]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 26.5)
 mesh = ExtResource("3_7nuvn")
 
-[node name="KITCHEN_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=833533051]
+[node name="KITCHEN_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1955884380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 11.5)
 mesh = ExtResource("4_3i0om")
 
-[node name="LIVINGROOM_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=371996717]
+[node name="LIVINGROOM_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1466924613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 mesh = ExtResource("5_7hrsj")
 
-[node name="NORTHHALL_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=1678520853]
+[node name="NORTHHALL_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1701248913]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 15, 0, 13)
 mesh = ExtResource("6_6fqkn")
 
-[node name="OFFICE_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=1889782248]
+[node name="OFFICE_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1307100579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 21.5)
 mesh = ExtResource("7_qx4v8")
 
-[node name="STAIRS_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=1255416340]
+[node name="STAIRS_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=849082572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 21.5)
 mesh = ExtResource("8_4pu5t")
 
-[node name="STUDY_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=199391999]
+[node name="STUDY_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1070437081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 6)
 mesh = ExtResource("9_j0jfv")
 
-[node name="WESTHALL_MAIN" type="MeshInstance3D" parent="date_night_house" unique_id=1464651065]
+[node name="WESTHALL_MAIN" type="MeshInstance3D" parent="date_night_house_02" unique_id=1723181852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 24)
 mesh = ExtResource("10_m1qsb")

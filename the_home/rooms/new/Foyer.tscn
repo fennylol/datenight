@@ -2,6 +2,14 @@
 
 [ext_resource type="ArrayMesh" uid="uid://brdfoo4ay2diq" path="res://the_home/rooms/meshs/foyer_mesh.tres" id="1_d8got"]
 [ext_resource type="Script" uid="uid://becb7i0qtyy5d" path="res://the_home/rooms/room.gd" id="1_jbas0"]
+[ext_resource type="PackedScene" uid="uid://c8gyq3834pel4" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/chair_B_wood.gltf" id="3_hkpu5"]
+[ext_resource type="PackedScene" uid="uid://b8irldj7ir1rn" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pictureframe_large_A.gltf" id="4_rlxb8"]
+[ext_resource type="PackedScene" uid="uid://bks8q18m6aueh" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pictureframe_large_B.gltf" id="5_jk3bp"]
+[ext_resource type="PackedScene" uid="uid://b0bggwj16hg1a" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/rug_rectangle_stripes_A.gltf" id="6_c53k1"]
+[ext_resource type="PackedScene" uid="uid://dhshhsrrlrusj" path="res://_assetpacks/LowPolyFurniture-Abstract_Duck/Bookshelf01.glb" id="7_jlk1x"]
+[ext_resource type="PackedScene" uid="uid://bhixs4275mlsd" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/armchair.gltf" id="8_khx5h"]
+[ext_resource type="PackedScene" uid="uid://d4fjdwk02boyk" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/cactus_small_B.gltf" id="9_ecujo"]
+[ext_resource type="PackedScene" uid="uid://dx7lkq7ljela0" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pillow_A.gltf" id="10_oxblu"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d8got"]
 data = PackedVector3Array(5.4999, 5, -0.0002, 4, 0, -0.0002, 5.4999, 0, -0.0002, 5.4999, 5, -0.0002, 4, 3, -0.0002, 4, 0, -0.0002, 0, 5, -0.0002, 4, 3, -0.0002, 5.4999, 5, -0.0002, 0, 5, -0.0002, 1.4999, 3, -0.0002, 4, 3, -0.0002, 0, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -0.0002, 1.4999, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 5, -0.0002, 0, 3, -2.5001, 0, 0, -2.5001, 0, 5, -13, 0, 3, -2.5001, 0, 5, -0.0002, 0, 5, -13, 0, 3, -4.5002, 0, 3, -2.5001, 0, 0, -13, 0, 3, -4.5002, 0, 5, -13, 0, 0, -13, 0, 0, -4.5002, 0, 3, -4.5002, 5.4999, 0, -0.0002, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 0, -0.0002, 5.4999, 0, -10.0001, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 3, -10.0001, 5.4999, 3, -12.0001, 5.4999, 5, -0.0002, 5.4999, 3, -12.0001, 5.4999, 5, -13, 5.4999, 5, -13, 5.4999, 3, -12.0001, 5.4999, 0, -12.0001, 5.4999, 5, -13, 5.4999, 0, -12.0001, 5.4999, 0, -13, 0, 0, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -13, 0, 5, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -4.5002, 0, 0, -13, 5.4999, 0, -13, 5.4999, 0, -12.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 6, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -10.0001, 0, 0, -2.5001, 5.4999, 0, -10.0001, 1.4999, 0, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 0, -2.5001, 1.4999, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, -0.0002, 5.4999, 0, -0.0002, 4, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 0, -0.0002, 4, 0, -0.0002, 4, 0, 0.5, 1.4999, 0, 0.5, 5.4999, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -12.0001, 5.4999, 3, -12.0001, 6, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -10.0001, 6, 3, -10.0001, 5.4999, 3, -10.0001, 5.4999, 0, -10.0001, 6, 0, -10.0001, 6, 3, -10.0001, 4, 3, -0.0002, 4, 0, 0.5, 4, 0, -0.0002, 4, 3, -0.0002, 4, 3, 0.5, 4, 0, 0.5, 1.4999, 0, -0.0002, 1.4999, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 3, 0.5, 6, 3, -12.0001, 5.4999, 3, -10.0001, 6, 3, -10.0001, 6, 3, -12.0001, 5.4999, 3, -12.0001, 5.4999, 3, -10.0001, 5.4999, 5, -13, 0, 5, -0.0002, 5.4999, 5, -0.0002, 5.4999, 5, -13, 0, 5, -13, 0, 5, -0.0002, 4, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 3, 0.5, 4, 3, 0.5, 4, 3, -0.0002, 1.4999, 3, -0.0002)
@@ -18,3 +26,45 @@ mesh = ExtResource("1_d8got")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1556481982]
 shape = SubResource("ConcavePolygonShape3D_d8got")
+
+[node name="chair_B_wood2" parent="." unique_id=821332228 instance=ExtResource("3_hkpu5")]
+transform = Transform3D(0.12170166, 0, -0.9925667, 0, 1, 0, 0.9925667, 0, 0.12170166, 4.6863647, 7.450581e-09, -0.6873199)
+
+[node name="chair_B_wood3" parent="." unique_id=60721777 instance=ExtResource("3_hkpu5")]
+transform = Transform3D(-0.0036224723, 0, -0.99999356, 0, 1, 0, 0.99999356, 0, -0.0036224723, 4.6863647, 7.450581e-09, -1.6279308)
+
+[node name="chair_B_wood4" parent="." unique_id=115514763 instance=ExtResource("3_hkpu5")]
+transform = Transform3D(0.102651365, 0, -0.99471754, 0, 1, 0, 0.99471754, 0, 0.102651365, 4.831549, 7.450581e-09, -2.5402172)
+
+[node name="pictureframe_large_A2" parent="." unique_id=674095680 instance=ExtResource("4_rlxb8")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0.028619641, 0.9995904, 3.412858e-10, 0.9995904, -0.028619641, 1.19199965e-08, 5.5048723, 2.2794614, -2.82666)
+
+[node name="pictureframe_large_A3" parent="." unique_id=201448794 instance=ExtResource("4_rlxb8")]
+transform = Transform3D(1.1924881e-08, 0, -1, -0.026266148, 0.999655, -3.1322067e-10, 0.999655, 0.026266148, 1.1920767e-08, 5.5048723, 2.2794614, -4.337661)
+
+[node name="pictureframe_large_A4" parent="." unique_id=365080488 instance=ExtResource("4_rlxb8")]
+transform = Transform3D(1.1924881e-08, 0, -1, -0.021624276, 0.9997662, -2.5786692e-10, 0.9997662, 0.021624276, 1.1922093e-08, 5.5048723, 2.2794614, -5.9099007)
+
+[node name="pictureframe_large_A5" parent="." unique_id=768183735 instance=ExtResource("4_rlxb8")]
+transform = Transform3D(1.1924881e-08, 0, -1, -0.045494627, 0.9989646, -5.42518e-10, 0.9989646, 0.045494627, 1.1912534e-08, 5.5048723, 2.2794614, -7.4284434)
+
+[node name="pictureframe_large_B2" parent="." unique_id=1442957651 instance=ExtResource("5_jk3bp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0.024711145, 0.99969465, 1.0801584e-09, -0.99969465, 0.024711145, -4.369804e-08, 0.032230616, 1.9556661, -6.918064)
+
+[node name="rug_rectangle_stripes_A2" parent="." unique_id=664904359 instance=ExtResource("6_c53k1")]
+transform = Transform3D(-0.006838908, 0, -0.99997663, 0, 1, 0, 0.99997663, 0, -0.006838908, 2.722049, -7.1525574e-07, -2.05113)
+
+[node name="rug_rectangle_stripes_A3" parent="." unique_id=1631835870 instance=ExtResource("6_c53k1")]
+transform = Transform3D(0.028068203, 0, -0.999606, 0, 1, 0, 0.999606, 0, 0.028068203, 2.722049, -7.1525574e-07, -7.6673203)
+
+[node name="Bookshelf012" parent="." unique_id=1055657240 instance=ExtResource("7_jlk1x")]
+transform = Transform3D(-0.04312581, 0, 0.9990697, 0, 1, 0, -0.9990697, 0, -0.04312581, 3.6082458, -2.3841858e-07, 0.58899665)
+
+[node name="armchair2" parent="." unique_id=951348977 instance=ExtResource("8_khx5h")]
+transform = Transform3D(0.6749251, 0, 0.73788625, 0, 1, 0, -0.73788625, 0, 0.6749251, 1.486272, 0.15349936, -11.233677)
+
+[node name="cactus_small_B2" parent="." unique_id=995430436 instance=ExtResource("9_ecujo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39059305, 2.5033953e-07, -10.449859)
+
+[node name="pillow_A2" parent="." unique_id=29762417 instance=ExtResource("10_oxblu")]
+transform = Transform3D(1, 0, 0, 0, 0.60565835, -0.7957248, 0, 0.7957248, 0.60565835, 1.6877718, 0.81749403, -11.402578)
