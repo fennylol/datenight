@@ -10,9 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://bhixs4275mlsd" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/armchair.gltf" id="8_khx5h"]
 [ext_resource type="PackedScene" uid="uid://d4fjdwk02boyk" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/cactus_small_B.gltf" id="9_ecujo"]
 [ext_resource type="PackedScene" uid="uid://dx7lkq7ljela0" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pillow_A.gltf" id="10_oxblu"]
+[ext_resource type="PackedScene" uid="uid://jrdcti88872i" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_small.gltf" id="11_rlxb8"]
+[ext_resource type="Texture2D" uid="uid://c840jeaql25lw" path="res://_assetpacks/Doors-alstrainfinite/Texture.png" id="12_c53k1"]
+[ext_resource type="ArrayMesh" uid="uid://cj4p37q8prapt" path="res://_assetpacks/Doors-alstrainfinite/Door4.obj" id="13_jlk1x"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d8got"]
 data = PackedVector3Array(5.4999, 5, -0.0002, 4, 0, -0.0002, 5.4999, 0, -0.0002, 5.4999, 5, -0.0002, 4, 3, -0.0002, 4, 0, -0.0002, 0, 5, -0.0002, 4, 3, -0.0002, 5.4999, 5, -0.0002, 0, 5, -0.0002, 1.4999, 3, -0.0002, 4, 3, -0.0002, 0, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -0.0002, 1.4999, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 5, -0.0002, 0, 3, -2.5001, 0, 0, -2.5001, 0, 5, -13, 0, 3, -2.5001, 0, 5, -0.0002, 0, 5, -13, 0, 3, -4.5002, 0, 3, -2.5001, 0, 0, -13, 0, 3, -4.5002, 0, 5, -13, 0, 0, -13, 0, 0, -4.5002, 0, 3, -4.5002, 5.4999, 0, -0.0002, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 0, -0.0002, 5.4999, 0, -10.0001, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 3, -10.0001, 5.4999, 3, -12.0001, 5.4999, 5, -0.0002, 5.4999, 3, -12.0001, 5.4999, 5, -13, 5.4999, 5, -13, 5.4999, 3, -12.0001, 5.4999, 0, -12.0001, 5.4999, 5, -13, 5.4999, 0, -12.0001, 5.4999, 0, -13, 0, 0, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -13, 0, 5, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -4.5002, 0, 0, -13, 5.4999, 0, -13, 5.4999, 0, -12.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 6, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -10.0001, 0, 0, -2.5001, 5.4999, 0, -10.0001, 1.4999, 0, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 0, -2.5001, 1.4999, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, -0.0002, 5.4999, 0, -0.0002, 4, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 0, -0.0002, 4, 0, -0.0002, 4, 0, 0.5, 1.4999, 0, 0.5, 5.4999, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -12.0001, 5.4999, 3, -12.0001, 6, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -10.0001, 6, 3, -10.0001, 5.4999, 3, -10.0001, 5.4999, 0, -10.0001, 6, 0, -10.0001, 6, 3, -10.0001, 4, 3, -0.0002, 4, 0, 0.5, 4, 0, -0.0002, 4, 3, -0.0002, 4, 3, 0.5, 4, 0, 0.5, 1.4999, 0, -0.0002, 1.4999, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 3, 0.5, 6, 3, -12.0001, 5.4999, 3, -10.0001, 6, 3, -10.0001, 6, 3, -12.0001, 5.4999, 3, -12.0001, 5.4999, 3, -10.0001, 5.4999, 5, -13, 0, 5, -0.0002, 5.4999, 5, -0.0002, 5.4999, 5, -13, 0, 5, -13, 0, 5, -0.0002, 4, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 3, 0.5, 4, 3, 0.5, 4, 3, -0.0002, 1.4999, 3, -0.0002)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqtwc"]
+size = Vector3(2.7592163, 3.6107178, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khx5h"]
+albedo_texture = ExtResource("12_c53k1")
 
 [node name="Foyer" type="Node3D" unique_id=450533073]
 script = ExtResource("1_jbas0")
@@ -24,8 +33,14 @@ mesh = ExtResource("1_d8got")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1250474857]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1556481982]
+[node name="@CollisionShape3D@135976" type="CollisionShape3D" parent="StaticBody3D" unique_id=1556481982]
 shape = SubResource("ConcavePolygonShape3D_d8got")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1217654342]
+
+[node name="_CollisionShape3D_135976" type="CollisionShape3D" parent="StaticBody3D2" unique_id=285413255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8051097, 1.3053589, 0.75007117)
+shape = SubResource("BoxShape3D_uqtwc")
 
 [node name="chair_B_wood2" parent="." unique_id=821332228 instance=ExtResource("3_hkpu5")]
 transform = Transform3D(0.12170166, 0, -0.9925667, 0, 1, 0, 0.9925667, 0, 0.12170166, 4.6863647, 7.450581e-09, -0.6873199)
@@ -68,3 +83,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39059305, 2.5033953e-07, -1
 
 [node name="pillow_A2" parent="." unique_id=29762417 instance=ExtResource("10_oxblu")]
 transform = Transform3D(1, 0, 0, 0, 0.60565835, -0.7957248, 0, 0.7957248, 0.60565835, 1.6877718, 0.81749403, -11.402578)
+
+[node name="shelf_B_small2" parent="." unique_id=997845842 instance=ExtResource("11_rlxb8")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2.8156152, 1.0014479, -12.999999)
+
+[node name="Door4" type="MeshInstance3D" parent="." unique_id=1991834409]
+transform = Transform3D(-6.556708e-08, 0, -1.6, 0, 1.5, 0, 1.5, 0, -6.9938224e-08, 2.109, 0.02, 0.318)
+material_override = SubResource("StandardMaterial3D_khx5h")
+mesh = ExtResource("13_jlk1x")
+
+[node name="Door5" type="MeshInstance3D" parent="." unique_id=1233215090]
+transform = Transform3D(-6.556708e-08, 0, 1.6, 0, 1.5, 0, -1.5, 0, -6.9938224e-08, 3.387, 0.02, 0.318)
+material_override = SubResource("StandardMaterial3D_khx5h")
+mesh = ExtResource("13_jlk1x")

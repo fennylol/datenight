@@ -61,6 +61,7 @@ environment = SubResource("Environment_1ncg2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9601, 1.6009275, -18.389732)
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9329376)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=384796451]
 navigation_mesh = SubResource("NavigationMesh_1ncg2")
@@ -98,16 +99,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -20.435736)
 
 [node name="Lamp" parent="." unique_id=1649056238 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4560056, 0.2831205, -11.737543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19434083, 1.3682662, -12.64904)
 
-[node name="Lamp2" parent="." unique_id=1074660112 instance=ExtResource("13_h656q")]
+[node name="Lamp11" parent="." unique_id=1074660112 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4239225, 1.8324579, -0.5770879)
+
+[node name="Lamp2" parent="." unique_id=1416889775 instance=ExtResource("13_h656q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.497883, 0.35453844, -2.1177557)
 
 [node name="Lamp3" parent="." unique_id=253217104 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.572547, 1.413677, -22.789494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.123563, 1.2226568, -23.921621)
 
 [node name="Lamp4" parent="." unique_id=1574121003 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.695404, 1.4136771, -16.718906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.249789, 0.22619545, -12.386707)
+
+[node name="Lamp10" parent="." unique_id=568532901 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7864485, 0.22619545, -12.386707)
 
 [node name="Lamp5" parent="." unique_id=300688458 instance=ExtResource("13_h656q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2461164, 0.30814695, -14.1285925)
@@ -116,13 +123,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2461164, 0.30814695, -14.12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.789466, 0.30814695, -28.389452)
 
 [node name="Lamp7" parent="." unique_id=882599316 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.30814695, -19.580288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.30814695, -18.424767)
 
 [node name="Lamp8" parent="." unique_id=387701785 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.30814695, -7.656374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.75010604, -8.004076)
 
 [node name="Lamp9" parent="." unique_id=1468460422 instance=ExtResource("13_h656q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.777224, 0.30814695, -15.819073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.127942, 0.78903234, -15.566396)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=887217936]
 

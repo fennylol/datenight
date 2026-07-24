@@ -4,3 +4,5 @@
 "Furniture Asset Pack 01" by Dan Sanderson (https://danthai.itch.io/)
 "Appliances SnapNSet Starter" (parts 1 and 2) by Alstra Infinite (https://store.godotengine.org/publisher/alstrainfinite/)
 "Kitchen Modular Set" by ALEX293517 (https://alex293517.itch.io/)
+"Fireplace" by AKD87 (https://akd87.itch.io/)
+"Doors - Asset" by ALSTRAINFINITE (https://alstrainfinite.itch.io/)
