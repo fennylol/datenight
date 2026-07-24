@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://culxbvse5rbqe"]
+
+[ext_resource type="ArrayMesh" uid="uid://rktmv0vl4817" path="res://the_home/rooms/meshs/kitchen_mesh.tres" id="1_jpoxh"]
+[ext_resource type="Script" uid="uid://becb7i0qtyy5d" path="res://the_home/rooms/room.gd" id="1_rfqsl"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jpoxh"]
+data = PackedVector3Array(5, 0, 0, 0, 4, 0, 0, 0, 0, 5, 0, 0, 5, 4, 0, 0, 4, 0, 0, 0, -5, 0, 3, -3, 0, 4, -5, 0, 0, -5, 0, 0, -3, 0, 3, -3, 0, 3, -3, 0, 4, 0, 0, 4, -5, 0, 3, -3, 0, 3, -1, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 3, -1, 0, 0, 0, 0, 3, -1, 0, 0, -1, 0, 0, -5, 5, 0, -5, 0, 0, -3, 5, 0, -5, 0, 0, -1, 0, 0, -3, 0, 0, -1, -0.5, 0, -3, 0, 0, -3, 0, 0, -1, -0.5, 0, -1, -0.5, 0, -3, 5, 0, -5, 5, 0, 0, 0, 0, -1, 5, 0, 0, 0, 0, 0, 0, 0, -1, 5, 0, -5, 5, 4, 0, 5, 0, 0, 5, 0, -5, 5, 4, -5, 5, 4, 0, 0, 0, -5, 5, 4, -5, 5, 0, -5, 0, 0, -5, 0, 4, -5, 5, 4, -5, 0, 3, -1, -0.5, 0, -1, 0, 0, -1, 0, 3, -1, -0.5, 3, -1, -0.5, 0, -1, 0, 0, -3, -0.5, 3, -3, 0, 3, -3, 0, 0, -3, -0.5, 0, -3, -0.5, 3, -3, -0.5, 3, -1, 0, 3, -3, -0.5, 3, -3, -0.5, 3, -1, 0, 3, -1, 0, 3, -3, 5, 4, 0, 0, 4, -5, 0, 4, 0, 5, 4, 0, 5, 4, -5, 0, 4, -5)
+
+[node name="Kitchen" type="Node3D" unique_id=1025472218]
+script = ExtResource("1_rfqsl")
+RoomName = "Kitchen"
+metadata/_custom_type_script = "uid://becb7i0qtyy5d"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2066725794]
+mesh = ExtResource("1_jpoxh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=102887217]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=300765794]
+shape = SubResource("ConcavePolygonShape3D_jpoxh")

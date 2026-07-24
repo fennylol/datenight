@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bamwb6a881t65"]
+
+[ext_resource type="ArrayMesh" uid="uid://c17wrm05tx7h3" path="res://the_home/rooms/meshs/north_hall_mesh.tres" id="1_ic172"]
+[ext_resource type="Script" uid="uid://becb7i0qtyy5d" path="res://the_home/rooms/room.gd" id="1_qxq44"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ic172"]
+data = PackedVector3Array(2, 4, 4, 4, 0, 4, 2, 0, 4, 2, 4, 4, 4, 3, 4, 4, 0, 4, 2, 4, 4, 6, 3, 4, 4, 3, 4, 2, 4, 4, 6.5, 4, 4, 6, 3, 4, 6, 3, 4, 6.5, 4, 4, 6.5, 3, 4, 6, 3, 4, 6.5, 3, 4, 6, 0, 4, 6, 0, 4, 6.5, 3, 4, 7, 3, 4, 6, 0, 4, 7, 3, 4, 7, 0, 4, 0, 3, 0.5, 2, 3, 0, 0, 3, 0, 0, 3, 0.5, 2, 3, 0.5, 2, 3, 0, 0, 0, 0, 2, 0, 4, 0, 0, 6, 0, 0, 0, 2, 0, 0, 2, 0, 4, 2, 0, 4, 7, 0, 6, 0, 0, 6, 2, 0, 4, 4, 0, 4, 7, 0, 6, 7, 0, 4, 7, 0, 6, 6, 0, 4, 4, 0, 4, 6, 0, 4, 7, 0, 6, 4, 0, 4, 6, 0, 3.5, 6, 0, 4, 4, 0, 4, 4, 0, 3.5, 6, 0, 3.5, 0, 3, 0.5, 2, 4, 0.5, 2, 3, 0.5, 0, 3, 0.5, 0, 4, 0.5, 2, 4, 0.5, 6.5, 3, 4, 6.5, 4, 6, 6.5, 3, 6, 6.5, 3, 4, 6.5, 4, 4, 6.5, 4, 6, 6.5, 3, 4, 7, 3, 6, 7, 3, 4, 6.5, 3, 4, 6.5, 3, 6, 7, 3, 6, 6, 0, 4, 6, 3, 3.5, 6, 3, 4, 6, 0, 4, 6, 0, 3.5, 6, 3, 3.5, 4, 3, 4, 4, 0, 3.5, 4, 0, 4, 4, 3, 4, 4, 3, 3.5, 4, 0, 3.5, 0, 4, 6, 6.5, 3, 6, 6.5, 4, 6, 0, 4, 6, 0, 0, 6, 6.5, 3, 6, 7, 0, 6, 6.5, 3, 6, 0, 0, 6, 7, 0, 6, 7, 3, 6, 6.5, 3, 6, 6, 3, 4, 4, 3, 3.5, 4, 3, 4, 6, 3, 4, 6, 3, 3.5, 4, 3, 3.5, 0, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 6, 0, 3, 0.5, 0, 3, 0, 0, 4, 6, 0, 3, 0.5, 0, 0, 6, 0, 4, 6, 0, 4, 0.5, 0, 3, 0.5, 2, 3, 0, 2, 0, 4, 2, 0, 0, 2, 3, 0, 2, 3, 0.5, 2, 0, 4, 2, 0, 4, 2, 3, 0.5, 2, 4, 0.5, 2, 0, 4, 2, 4, 0.5, 2, 4, 4, 6.5, 4, 4, 0, 4, 6, 6.5, 4, 6, 6.5, 4, 4, 2, 4, 4, 0, 4, 6, 2, 4, 0.5, 0, 4, 6, 2, 4, 4, 2, 4, 0.5, 0, 4, 0.5, 0, 4, 6)
+
+[node name="NorthHall" type="Node3D" unique_id=748433940]
+script = ExtResource("1_qxq44")
+RoomName = "North Hall"
+metadata/_custom_type_script = "uid://becb7i0qtyy5d"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1368068258]
+mesh = ExtResource("1_ic172")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1740659627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1946492373]
+shape = SubResource("ConcavePolygonShape3D_ic172")

@@ -3,6 +3,7 @@ class_name Room
 
 var Doors: Array[Door]
 var BoundingBox: AABB 
+
 @export var RoomName: String
 
 func _ready() -> void:

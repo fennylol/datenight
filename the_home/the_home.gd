@@ -2,15 +2,10 @@ extends Node3D
 
 @onready var THE_CHILD: TheChild = $TheChild
 
-@onready var ROOMS: Array[Room] = [
-   $Livingroom,
-   $Hallway,
-   $Kitchen,
-   $Playroom
-]
+@onready var ROOMS: Node3D = $Rooms
 
 func _get_containing_room() -> Room:
-   for room:Room in ROOMS:
+   for room:Room in ROOMS.get_children():
       if room.BoundingBox.has_point(THE_CHILD.position):
          return room
    return null
