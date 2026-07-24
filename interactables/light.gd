@@ -5,7 +5,6 @@ var Powered: bool = true
 var Power: float = 0.0
 
 @onready var Bulb: Light3D = $Bulb
-@onready var Area: Area3D = $Area3D
 
 func _ready() -> void:
    Power = Bulb.light_energy
