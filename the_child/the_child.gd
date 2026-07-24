@@ -5,27 +5,44 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var camera = $Camera3D
+@onready var Area: Area3D = $Area3D
 
-var  mouse_captured = false
+var mouse_captured = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+const MAX_BULBS: int = 3
+var BulbCount: int = 0
+
+var NearbyThings: Array[Interactable]
 
 # ╭----------------╮
 # |    UTILITY     |
 # ╰----------------╯
-func register_input(input_name: String, keycode: Key):
-   InputMap.add_action(input_name)
-   var event = InputEventKey.new()
-   event.keycode = keycode
-   InputMap.action_add_event(input_name, event)
-
-
 func _ready():
-   register_input("jump", KEY_SPACE)
-   register_input("left", KEY_A)
-   register_input("down", KEY_S)
-   register_input("right", KEY_D)
-   register_input("up", KEY_W)
-   register_input("capture_mouse", KEY_ESCAPE)
+   var register_input: Callable = func(input_name: String, keycode: Key):
+      InputMap.add_action(input_name)
+      var event = InputEventKey.new()
+      event.keycode = keycode
+      InputMap.action_add_event(input_name, event)
+   register_input.call("jump", KEY_SPACE)
+   register_input.call("left", KEY_A)
+   register_input.call("down", KEY_S)
+   register_input.call("right", KEY_D)
+   register_input.call("up", KEY_W)
+   register_input.call("interact", KEY_E)
+   register_input.call("capture_mouse", KEY_ESCAPE)
+   
+   Area.body_entered.connect(_on_area_entered)
+   Area.body_exited.connect(_on_area_exited)
+
+func _on_area_entered(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Interactable:
+      NearbyThings.append(parent)
+
+func _on_area_exited(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Interactable:
+      NearbyThings.erase(parent)
 
 # mouse
 func _unhandled_input(event):
@@ -41,6 +58,11 @@ func _process(_delta):
       mouse_captured = ! mouse_captured
       if mouse_captured: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
       else:Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+   
+   if Input.is_action_just_pressed("interact"):
+      for thing:Interactable in NearbyThings:
+         thing.on_interact()
+   
 
 # movement
 func _physics_process(delta):

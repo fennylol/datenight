@@ -12,28 +12,26 @@
 [ext_resource type="PackedScene" uid="uid://nwvfpjohhqx2" path="res://the_home/rooms/new/SouthHall.tscn" id="10_k5hsa"]
 [ext_resource type="PackedScene" uid="uid://b1w66ao2woek4" path="res://the_home/rooms/new/Stairway.tscn" id="11_8osdg"]
 [ext_resource type="PackedScene" uid="uid://g5aicb6rqfip" path="res://the_home/rooms/new/Study.tscn" id="12_nej5g"]
+[ext_resource type="PackedScene" uid="uid://e3nxc3lfpska" path="res://interactables/Lamp.tscn" id="13_h656q"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odmkw"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h656q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_y1tlc"]
-sky_material = SubResource("ProceduralSkyMaterial_odmkw")
+[sub_resource type="Sky" id="Sky_gp5so"]
+sky_material = SubResource("ProceduralSkyMaterial_h656q")
 
-[sub_resource type="Environment" id="Environment_0wrxk"]
+[sub_resource type="Environment" id="Environment_1ncg2"]
 background_mode = 2
-sky = SubResource("Sky_y1tlc")
+background_energy_multiplier = 0.1
+sky = SubResource("Sky_gp5so")
 glow_enabled = true
 
 [node name="DaHouse" type="Node3D" unique_id=1201681597]
 script = ExtResource("1_2cjki")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=928236890]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1082749061]
-environment = SubResource("Environment_0wrxk")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1819949476]
+environment = SubResource("Environment_1ncg2")
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
 
@@ -68,3 +66,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, -5)
 
 [node name="Study" parent="Rooms" unique_id=29304178 instance=ExtResource("12_nej5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -20.5)
+
+[node name="Lamp" parent="." unique_id=1649056238 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4560056, 0.2831205, -11.737543)
+
+[node name="Lamp2" parent="." unique_id=1074660112 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.497883, 0.35453844, -2.1177557)
+
+[node name="Lamp3" parent="." unique_id=253217104 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.572547, 1.413677, -22.789494)
+
+[node name="Lamp4" parent="." unique_id=1574121003 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.695404, 1.4136771, -16.718906)
+
+[node name="Lamp5" parent="." unique_id=300688458 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2461164, 0.30814695, -14.1285925)
+
+[node name="Lamp6" parent="." unique_id=334901438 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.789466, 0.30814695, -28.389452)
+
+[node name="Lamp7" parent="." unique_id=882599316 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.30814695, -19.580288)
+
+[node name="Lamp8" parent="." unique_id=387701785 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.636999, 0.30814695, -7.656374)
+
+[node name="Lamp9" parent="." unique_id=1468460422 instance=ExtResource("13_h656q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.777224, 0.30814695, -15.819073)
