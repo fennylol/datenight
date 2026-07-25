@@ -31,7 +31,7 @@ size = Vector3(2.5445862, 1.7700806, 1.3311863)
 size = Vector3(0.9018936, 1.7700806, 1.0239587)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dir23"]
-height = 1.7546387
+height = 1.5472412
 radius = 0.85546875
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvcwa"]
@@ -187,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.153453, 0.38504028, -6.6802
 shape = SubResource("BoxShape3D_ma17a")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1176054975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.451799, 0.7843323, -5.7058578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.451799, 0.68063354, -5.7058578)
 shape = SubResource("CylinderShape3D_dir23")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=407434739]
@@ -221,7 +221,7 @@ mesh = SubResource("ArrayMesh_w5eko")
 transform = Transform3D(0.6735134, 0, -1.3402909, 0, 1.5, 0, 1.3402909, 0, 0.6735134, 5.2373214, 0.00026319746, -6.6986504)
 
 [node name="Big Globe_FBX" parent="." unique_id=1662311446 instance=ExtResource("7_grhfa")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.4376874, 0.2991221, -5.740678)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.4376874, -0.010167062, -5.740678)
 
 [node name="Bookcase_22" parent="." unique_id=1431447787 instance=ExtResource("8_sioh8")]
 transform = Transform3D(1.788732e-08, 0, -1.4999999, 0, 1.5, 0, 1.4999999, 0, 1.788732e-08, 10.6995325, 0.017383013, -7.442615)

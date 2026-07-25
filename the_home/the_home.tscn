@@ -36,6 +36,11 @@ agent_radius = 0.25
 agent_max_climb = 0.0
 agent_max_slope = 10.01
 
+[sub_resource type="QuadMesh" id="QuadMesh_dy57i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3br5d"]
+font_size = 60
+
 [node name="TheHouse" type="Node3D" unique_id=1201681597]
 script = ExtResource("1_2cjki")
 
@@ -51,7 +56,7 @@ environment = SubResource("Environment_1ncg2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9601, 1.6009275, -18.389732)
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
-transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -7.7945895, 0.65223086, -9.721098)
+transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -8.1203, 0.65223086, -10.431711)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=384796451]
 navigation_mesh = SubResource("NavigationMesh_1ncg2")
@@ -87,3 +92,131 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, -5)
 
 [node name="Study" parent="NavigationRegion3D/Rooms" unique_id=29304178 instance=ExtResource("12_nej5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -20.435736)
+
+[node name="WorldPrompts" type="Node3D" parent="." unique_id=1936128190]
+
+[node name="PressE" type="Label3D" parent="WorldPrompts" unique_id=1576323225]
+transform = Transform3D(0.5205803, 0, 0.8538127, 0, 1, 0, -0.8538127, 0, 0.5205803, -8.836916, 1.4241885, -10.738102)
+pixel_size = 0.002
+billboard = 1
+modulate = Color(0.5803922, 0.30588236, 0.17254902, 1)
+outline_modulate = Color(0.19, 0.101333335, 0.057, 1)
+text = "PRESS E"
+
+[node name="Interface" type="Control" parent="." unique_id=711062640]
+process_mode = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WAKE_UP" type="Control" parent="Interface" unique_id=2127647555]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="top_lid" type="Node2D" parent="Interface/WAKE_UP" unique_id=590142545]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=633197129]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(564.99994, -44.999985)
+scale = Vector2(1281.9998, 765.99994)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=640994494]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1023.00006, 293)
+rotation = 0.34906584
+scale = Vector2(776.8305, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=459710746]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(780.72375, 228.32593)
+rotation = 0.17453292
+scale = Vector2(469.61084, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=1665971862]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(298.99994, 233.99998)
+rotation = -0.17453292
+scale = Vector2(469.61084, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=790897722]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(195.99998, 266)
+rotation = -0.34906584
+scale = Vector2(776.8305, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="bot_lid" type="Node2D" parent="Interface/WAKE_UP" unique_id=2009229277]
+position = Vector2(0, 320)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=1232717064]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(566.565, 309)
+scale = Vector2(1281.9998, 749.99994)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=1033775855]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(177, 2)
+rotation = 0.34906584
+scale = Vector2(776.8305, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=115689010]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(377, 47)
+rotation = 0.17453292
+scale = Vector2(469.61084, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=1379314331]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(816, 41)
+rotation = -0.17453292
+scale = Vector2(469.61084, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=752933504]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1023, -13)
+rotation = -0.34906584
+scale = Vector2(776.8305, 264.50003)
+mesh = SubResource("QuadMesh_dy57i")
+
+[node name="LIGHTS" type="Control" parent="Interface" unique_id=571607553]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Interface/LIGHTS" unique_id=14627747]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -41.5
+offset_right = 312.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TURN ON THE LIGHTS"
+label_settings = SubResource("LabelSettings_3br5d")
