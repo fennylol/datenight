@@ -56,7 +56,7 @@ func _ready():
 
 func _on_body_entered(body: Node3D) -> void:
    var parent := body.get_parent()
-   if parent and parent is Interactable not NearbyThings.has(parent):
+   if parent and parent is Interactable and not NearbyThings.has(parent):
       NearbyThings.append(parent)
 
 func _on_body_exited(body: Node3D) -> void:
