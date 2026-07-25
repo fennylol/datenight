@@ -53,7 +53,7 @@ shadow_enabled = true
 environment = SubResource("Environment_1ncg2")
 
 [node name="TheCreature" parent="." unique_id=345174493 instance=ExtResource("2_gp5so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9601, 1.6009275, -18.389732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9601, 0.6680722, -17.662836)
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
 transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -8.1203, 0.65223086, -10.431711)

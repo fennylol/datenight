@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dqdwqjwjtytnh" path="res://interactables/Lamp_Standing.tscn" id="30_uqtwc"]
 [ext_resource type="PackedScene" uid="uid://e3nxc3lfpska" path="res://interactables/Lamp.tscn" id="31_vyuwi"]
 [ext_resource type="PackedScene" uid="uid://kini0u6ubull" path="res://_assetpacks/FantasyPropsMEgakit-Quaternius/glTF/BookGroup_Small_1.gltf" id="32_lu4yi"]
+[ext_resource type="PackedScene" uid="uid://dxg7lpfcvocr1" path="res://RAWS/light_box.glb" id="33_uqtwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s70t"]
 size = Vector3(2.5, 3, 0.25)
@@ -269,3 +270,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.6666667, 0, 0, 0, 0.38461542, 0.16927862
 light_color = Color(0.6847828, 0.5246509, 0.4504463, 1)
 shadow_enabled = true
 shadow_caster_mask = 4294967293
+
+[node name="light_box" parent="Door3/Bulb" unique_id=1709697392 instance=ExtResource("33_uqtwc")]
+transform = Transform3D(-5.245367e-08, 0, 1, 0, 1, 0, -1.2, 0, -4.371138e-08, 0.8429457, 0, 0)

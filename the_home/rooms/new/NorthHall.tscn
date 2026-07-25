@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jrdcti88872i" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_small.gltf" id="7_e20ho"]
 [ext_resource type="PackedScene" uid="uid://crdjcu1v2jxmf" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pictureframe_medium.gltf" id="8_yuwqg"]
 [ext_resource type="PackedScene" uid="uid://dqdwqjwjtytnh" path="res://interactables/Lamp_Standing.tscn" id="9_4hywe"]
+[ext_resource type="PackedScene" uid="uid://dxg7lpfcvocr1" path="res://RAWS/light_box.glb" id="9_ax0rn"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ic172"]
 data = PackedVector3Array(2, 4, 4, 4, 0, 4, 2, 0, 4, 2, 4, 4, 4, 3, 4, 4, 0, 4, 2, 4, 4, 6, 3, 4, 4, 3, 4, 2, 4, 4, 6.5, 4, 4, 6, 3, 4, 6, 3, 4, 6.5, 4, 4, 6.5, 3, 4, 6, 3, 4, 6.5, 3, 4, 6, 0, 4, 6, 0, 4, 6.5, 3, 4, 7, 3, 4, 6, 0, 4, 7, 3, 4, 7, 0, 4, 0, 3, 0.5, 2, 3, 0, 0, 3, 0, 0, 3, 0.5, 2, 3, 0.5, 2, 3, 0, 0, 0, 0, 2, 0, 4, 0, 0, 6, 0, 0, 0, 2, 0, 0, 2, 0, 4, 2, 0, 4, 7, 0, 6, 0, 0, 6, 2, 0, 4, 4, 0, 4, 7, 0, 6, 7, 0, 4, 7, 0, 6, 6, 0, 4, 4, 0, 4, 6, 0, 4, 7, 0, 6, 4, 0, 4, 6, 0, 3.5, 6, 0, 4, 4, 0, 4, 4, 0, 3.5, 6, 0, 3.5, 0, 3, 0.5, 2, 4, 0.5, 2, 3, 0.5, 0, 3, 0.5, 0, 4, 0.5, 2, 4, 0.5, 6.5, 3, 4, 6.5, 4, 6, 6.5, 3, 6, 6.5, 3, 4, 6.5, 4, 4, 6.5, 4, 6, 6.5, 3, 4, 7, 3, 6, 7, 3, 4, 6.5, 3, 4, 6.5, 3, 6, 7, 3, 6, 6, 0, 4, 6, 3, 3.5, 6, 3, 4, 6, 0, 4, 6, 0, 3.5, 6, 3, 3.5, 4, 3, 4, 4, 0, 3.5, 4, 0, 4, 4, 3, 4, 4, 3, 3.5, 4, 0, 3.5, 0, 4, 6, 6.5, 3, 6, 6.5, 4, 6, 0, 4, 6, 0, 0, 6, 6.5, 3, 6, 7, 0, 6, 6.5, 3, 6, 0, 0, 6, 7, 0, 6, 7, 3, 6, 6.5, 3, 6, 6, 3, 4, 4, 3, 3.5, 4, 3, 4, 6, 3, 4, 6, 3, 3.5, 4, 3, 3.5, 0, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 6, 0, 3, 0.5, 0, 3, 0, 0, 4, 6, 0, 3, 0.5, 0, 0, 6, 0, 4, 6, 0, 4, 0.5, 0, 3, 0.5, 2, 3, 0, 2, 0, 4, 2, 0, 0, 2, 3, 0, 2, 3, 0.5, 2, 0, 4, 2, 0, 4, 2, 3, 0.5, 2, 4, 0.5, 2, 0, 4, 2, 4, 0.5, 2, 4, 4, 6.5, 4, 4, 0, 4, 6, 6.5, 4, 6, 6.5, 4, 4, 2, 4, 4, 0, 4, 6, 2, 4, 0.5, 0, 4, 6, 2, 4, 4, 2, 4, 0.5, 0, 4, 0.5, 0, 4, 6)
@@ -222,3 +223,6 @@ transform = Transform3D(0.5, 0, 5.3290705e-15, 0, 0.6666667, 0, -7.1054274e-15, 
 light_color = Color(0.6847828, 0.5246509, 0.4504463, 1)
 shadow_enabled = true
 shadow_caster_mask = 4294967293
+
+[node name="light_box" parent="Door3/Bulb" unique_id=1709697392 instance=ExtResource("9_ax0rn")]
+transform = Transform3D(-5.245367e-08, 0, 1, 0, 1, 0, -1.2, 0, -4.371138e-08, 0.8429457, 0, 0)
