@@ -1,26 +1,19 @@
 extends CharacterBody3D
 class_name TheChild
 
-const SPEED = 2.5
-const JUMP_VELOCITY = 4.5
-@export var LIGHT_ROT_SPEED = 5
-@export var CAM_ROT_SPEED = 0.0025
+const SPEED: float = 2.5
+const GRAVITY: float = 9.8
+const JUMP_VELOCITY: float = 4.5
+const CAM_ROT_SPEED: float = 0.0025
+const DAMPING_FACTOR: float = 0.93
+const SPRING_STRENGTH: float = 100.0
 
-@onready var camera: Camera3D = $Camera3D
+@onready var Camera: Camera3D = $Camera3D
 @onready var Area: Area3D = $Area3D
 @onready var Flashlight: SpotLight3D = $SpotLight3D
 
 var mouse_captured = false
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var damping_factor = 0.97
-var spring_strength: float = 50.0
 var flashlight_velocity := Vector2.ZERO
-
-
-
-const MAX_BULBS: int = 3
-var BulbCount: int = 0
-
 var NearbyThings: Array[Interactable]
 
 # ╭----------------╮
@@ -59,8 +52,8 @@ func _unhandled_input(event):
    if event is InputEventMouseMotion and  mouse_captured:
       rotate_y(-event.relative.x * CAM_ROT_SPEED)
       Flashlight.rotate_y(event.relative.x * CAM_ROT_SPEED)
-      camera.rotate_x(-event.relative.y * CAM_ROT_SPEED)
-      camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+      Camera.rotate_x(-event.relative.y * CAM_ROT_SPEED)
+      Camera.rotation.x = clamp(Camera.rotation.x, -PI/2, PI/2)
 
 # mouse capture
 func _process(delta):
@@ -78,18 +71,18 @@ func _process(delta):
       Flashlight.visible = not Flashlight.visible
    
    var diff := Vector2(
-      camera.rotation.x - Flashlight.rotation.x,
+      Camera.rotation.x - Flashlight.rotation.x,
       0 - Flashlight.rotation.y
    )
-   var acceleration: Vector2 = diff * spring_strength
+   var acceleration: Vector2 = diff * SPRING_STRENGTH
    flashlight_velocity += acceleration*delta
-   flashlight_velocity *= damping_factor
+   flashlight_velocity *= DAMPING_FACTOR
    
    Flashlight.rotation.x += flashlight_velocity.x * delta
    Flashlight.rotation.y += flashlight_velocity.y * delta
    #
    #if abs(diff.length()) < 0.03 and abs(flashlight_velocity.length()) < 0.03 and abs(flashlight_velocity.length()) > 0:
-      #Flashlight.rotation.x = camera.rotation.x
+      #Flashlight.rotation.x = Camera.rotation.x
       #Flashlight.rotation.y = 0 
       #flashlight_velocity = Vector2.ZERO
    
@@ -98,7 +91,7 @@ func _process(delta):
 # movement
 func _physics_process(delta):
    if ! mouse_captured: return
-   if not is_on_floor(): velocity.y -= gravity * delta
+   if not is_on_floor(): velocity.y -= GRAVITY * delta
    
    if Input.is_action_just_pressed("jump") and is_on_floor(): velocity.y = JUMP_VELOCITY
    

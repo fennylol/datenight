@@ -9,6 +9,7 @@ extends Node3D
 var last_room: Room
 var game_time : float = 0.0
 var tutorial_level : int = 0
+const MAX_TUTORIAL_LEVEL: int = 4
 
 func _get_containing_room() -> Room:
    for room:Room in ROOMS.get_children():
@@ -43,14 +44,15 @@ func _attempt_tutorial(delta):
          lights.visible = true
       else:
          lights.visible = false
-      if Input.is_action_just_pressed("interact"):
+      if Input.is_action_just_pressed("interact") and THE_CHILD.NearbyThings.size():
          WORLDPROMPTS.get_child(0).visible = false
          game_time = 0.0
          tutorial_level = 2
    elif tutorial_level == 2:
       var lights = INTERFACE.get_child(1)
       lights.visible = true
-      lights.get_child(0).text = "ALL OF THEM"
+      lights.get_child(0).text = "they will keep you safe."
       if game_time > 3.0:
          lights.visible = false
          tutorial_level = 3
+   
