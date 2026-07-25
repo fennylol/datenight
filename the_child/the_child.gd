@@ -13,6 +13,7 @@ enum DeviceID {KYBRD, MSBTN, JYBTN, JYAXS}
 @onready var Camera: Camera3D = $Camera3D
 @onready var Area: Area3D = $Area3D
 @onready var Flashlight: SpotLight3D = $SpotLight3D
+@onready var FlashlightArea: Area3D = $SpotLight3D/Area3D
 
 var allow_inputs := false
 var allow_movement := false
@@ -48,18 +49,29 @@ func _ready():
    register_input.call("capture_mouse", DeviceID.KYBRD, Key.KEY_ESCAPE)
    register_input.call("capture_mouse", DeviceID.JYBTN, JoyButton.JOY_BUTTON_START)
    
-   Area.body_entered.connect(_on_area_entered)
-   Area.body_exited.connect(_on_area_exited)
+   Area.body_entered.connect(_on_body_entered)
+   Area.body_exited.connect(_on_body_exited)
+   FlashlightArea.body_entered.connect(_on_body_entered_flashlight)
+   FlashlightArea.body_exited.connect(_on_body_exited_flashlight)
 
-func _on_area_entered(body: Node3D) -> void:
+func _on_body_entered(body: Node3D) -> void:
    var parent := body.get_parent()
-   if parent and parent is Interactable:
+   if parent and parent is Interactable not NearbyThings.has(parent):
       NearbyThings.append(parent)
 
-func _on_area_exited(body: Node3D) -> void:
+func _on_body_exited(body: Node3D) -> void:
    var parent := body.get_parent()
    if parent and parent is Interactable:
       NearbyThings.erase(parent)
+    
+func _on_body_entered_flashlight(body: Node3D) -> void:
+   if body is TheCreature:
+      print("CREATURE SPOTTED")
+      
+func _on_body_exited_flashlight(body: Node3D) -> void:
+   if body is TheCreature:
+      print("CREATURE OUT OF SIGHT")
+
 
 # mouse
 func _unhandled_input(event):
@@ -85,7 +97,7 @@ func _process(delta):
    #		player.rotate_y(-joystick_camera_input.x * get_physics_process_delta_time())
    #		head.rotate_x(-joystick_camera_input.y * get_physics_process_delta_time())
    #		head.rotation.x = clamp(head.rotation.x, -PI/2, PI/2)
-   
+   print(NearbyThings)
    if Input.is_action_just_pressed("interact") and allow_inputs:
       for thing:Interactable in NearbyThings:
          thing.on_interact()
