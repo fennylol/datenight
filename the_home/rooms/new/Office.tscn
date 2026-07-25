@@ -418,7 +418,6 @@ transform = Transform3D(0.99991715, 0, 0.012871475, 0, 1, 0, -0.012871475, 0, 0.
 
 [node name="Lamp" parent="." unique_id=1074660112 instance=ExtResource("4_ace5p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62047, 1.2542337, -5.451038)
-Powered = false
 
 [node name="KA_Airfryer_V12" parent="." unique_id=1103446812 instance=ExtResource("5_hh3al")]
 transform = Transform3D(0.99220014, 0, -0.1246551, 0, 1, 0, 0.1246551, 0, 0.99220014, 1.8539995, 0.9856026, -5.860081)
