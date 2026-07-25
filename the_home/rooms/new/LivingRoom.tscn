@@ -788,7 +788,7 @@ transform = Transform3D(0.9334825, 0, 0.3586229, 0, 1, 0, -0.3586229, 0, 0.93348
 transform = Transform3D(0.93159914, 0, -0.3634874, 0, 1, 0, 0.3634874, 0, 0.93159914, 9.55519, 0, -11.806757)
 
 [node name="rug_oval_B2" parent="." unique_id=1538831746 instance=ExtResource("11_l2bse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.606741, 0, -9.976964)
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 7.606741, 0, -9.976964)
 
 [node name="cabinet_small2" parent="." unique_id=1015193074 instance=ExtResource("12_0hj00")]
 transform = Transform3D(0.99858296, 0, 0.053217497, 0, 1, 0, -0.053217497, 0, 0.99858296, 7.2852488, -4.6938658e-07, -12.592172)

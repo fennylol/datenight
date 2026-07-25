@@ -5,7 +5,6 @@
 [ext_resource type="ArrayMesh" uid="uid://o1w138nv4w2f" path="res://_assetpacks/Doors-alstrainfinite/Door3.obj" id="3_43t1p"]
 [ext_resource type="PackedScene" uid="uid://b8irldj7ir1rn" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pictureframe_large_A.gltf" id="4_ax0rn"]
 [ext_resource type="PackedScene" uid="uid://b85r8oq6276nj" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_small_decorated.gltf" id="5_53foi"]
-[ext_resource type="PackedScene" uid="uid://5s8wehbdea2x" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_large.gltf" id="6_37rnx"]
 [ext_resource type="PackedScene" uid="uid://jrdcti88872i" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_small.gltf" id="7_e20ho"]
 [ext_resource type="PackedScene" uid="uid://crdjcu1v2jxmf" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/pictureframe_medium.gltf" id="8_yuwqg"]
 [ext_resource type="PackedScene" uid="uid://dqdwqjwjtytnh" path="res://interactables/Lamp_Standing.tscn" id="9_4hywe"]
@@ -200,10 +199,7 @@ shadow_caster_mask = 4294967293
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.491717, 1.9592723, 6.0217566)
 
 [node name="shelf_B_small_decorated2" parent="." unique_id=1576953166 instance=ExtResource("5_53foi")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.017913282, 2.0352602, 5.2402)
-
-[node name="shelf_B_large2" parent="." unique_id=624704979 instance=ExtResource("6_37rnx")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.022482634, 2.0309496, 3.023817)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.017913282, 2.0352602, 3.0436006)
 
 [node name="shelf_B_small2" parent="." unique_id=997845842 instance=ExtResource("7_e20ho")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.021107495, 2.0261574, 1.0946859)
@@ -219,4 +215,4 @@ transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 2.01
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 2.0132537, 1.6172194, 2.3054786)
 
 [node name="Lamp" parent="." unique_id=1074660112 instance=ExtResource("9_4hywe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9711375, 0, 4.5132127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5990731, 0, 5.4410443)

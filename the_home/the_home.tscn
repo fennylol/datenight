@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9601, 1.6009275, -18.389732
 visible = false
 
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9329376)
+transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -7.7945895, 0.65223086, -9.721098)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=384796451]
 navigation_mesh = SubResource("NavigationMesh_1ncg2")
