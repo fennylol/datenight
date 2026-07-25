@@ -3,7 +3,8 @@ class_name TheChild
 
 const SPEED = 2.5
 const JUMP_VELOCITY = 4.5
-const CAMERA_ROT_SPEED = 0.1
+@export var LIGHT_ROT_SPEED = 5
+@export var CAM_ROT_SPEED = 0.0025
 
 @onready var camera: Camera3D = $Camera3D
 @onready var Area: Area3D = $Area3D
@@ -11,6 +12,12 @@ const CAMERA_ROT_SPEED = 0.1
 
 var mouse_captured = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var damping_factor = 0.97
+var spring_strength: float = 50.0
+var flashlight_velocity := Vector2.ZERO
+
+
+
 const MAX_BULBS: int = 3
 var BulbCount: int = 0
 
@@ -50,12 +57,13 @@ func _on_area_exited(body: Node3D) -> void:
 # mouse
 func _unhandled_input(event):
    if event is InputEventMouseMotion and  mouse_captured:
-      rotate_y(-event.relative.x * .001)
-      camera.rotate_x(-event.relative.y * .001)
+      rotate_y(-event.relative.x * CAM_ROT_SPEED)
+      Flashlight.rotate_y(event.relative.x * CAM_ROT_SPEED)
+      camera.rotate_x(-event.relative.y * CAM_ROT_SPEED)
       camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 # mouse capture
-func _process(_delta):
+func _process(delta):
    if Input.is_action_just_pressed("capture_mouse") or \
    Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not  mouse_captured:
       mouse_captured = ! mouse_captured
@@ -68,6 +76,23 @@ func _process(_delta):
    
    if Input.is_action_just_pressed("flashlight"):
       Flashlight.visible = not Flashlight.visible
+   
+   var diff := Vector2(
+      camera.rotation.x - Flashlight.rotation.x,
+      0 - Flashlight.rotation.y
+   )
+   var acceleration: Vector2 = diff * spring_strength
+   flashlight_velocity += acceleration*delta
+   flashlight_velocity *= damping_factor
+   
+   Flashlight.rotation.x += flashlight_velocity.x * delta
+   Flashlight.rotation.y += flashlight_velocity.y * delta
+   #
+   #if abs(diff.length()) < 0.03 and abs(flashlight_velocity.length()) < 0.03 and abs(flashlight_velocity.length()) > 0:
+      #Flashlight.rotation.x = camera.rotation.x
+      #Flashlight.rotation.y = 0 
+      #flashlight_velocity = Vector2.ZERO
+   
    
 
 # movement
