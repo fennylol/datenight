@@ -97,7 +97,7 @@ func _process(delta):
    #		player.rotate_y(-joystick_camera_input.x * get_physics_process_delta_time())
    #		head.rotate_x(-joystick_camera_input.y * get_physics_process_delta_time())
    #		head.rotation.x = clamp(head.rotation.x, -PI/2, PI/2)
-   print(NearbyThings)
+
    if Input.is_action_just_pressed("interact") and allow_inputs:
       for thing:Interactable in NearbyThings:
          thing.on_interact()
@@ -114,11 +114,6 @@ func _process(delta):
    
    Flashlight.rotation.x += flashlight_velocity.x * delta
    Flashlight.rotation.y += flashlight_velocity.y * delta
-   #
-   #if abs(diff.length()) < 0.03 and abs(flashlight_velocity.length()) < 0.03 and abs(flashlight_velocity.length()) > 0:
-      #Flashlight.rotation.x = Camera.rotation.x
-      #Flashlight.rotation.y = 0 
-      #flashlight_velocity = Vector2.ZERO
    
    
 

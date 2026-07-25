@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7fjnqxikkj7x" path="res://the_home/the_home.gd" id="1_2cjki"]
 [ext_resource type="PackedScene" uid="uid://c5wp577lftwwe" path="res://the_child/the_child.tscn" id="1_f33rb"]
-[ext_resource type="PackedScene" uid="uid://dbkcvq4fhuc0p" path="res://the_creature/the_creature.tscn" id="2_gp5so"]
+[ext_resource type="PackedScene" uid="uid://w7p52wglmeuu" path="res://the_creature/detour_critter.tscn" id="2_gp5so"]
 [ext_resource type="PackedScene" uid="uid://by8jett3br52u" path="res://the_home/rooms/new/Closet.tscn" id="3_ke3j4"]
 [ext_resource type="PackedScene" uid="uid://dg7mc0gb06tfs" path="res://the_home/rooms/new/DiningRoom.tscn" id="4_h656q"]
 [ext_resource type="PackedScene" uid="uid://d2y2reo2vlioa" path="res://the_home/rooms/new/Foyer.tscn" id="5_gp5so"]
@@ -51,10 +51,15 @@ font_color = Color(1, 0.19999999, 0.19999999, 1)
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_c1rww"]
+viewport_path = NodePath("SubViewport")
+
 [node name="TheHouse" type="Node3D" unique_id=1201681597]
 script = ExtResource("1_2cjki")
 
-[node name="ORTHO" type="Camera3D" parent="." unique_id=1737171916]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=864113940]
+
+[node name="ORTHO" type="Camera3D" parent="SubViewport" unique_id=1737171916]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, -14.5)
 projection = 1
 size = 32.0
@@ -67,11 +72,10 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1819949476]
 environment = SubResource("Environment_1ncg2")
 
-[node name="TheCreature" parent="." unique_id=738065402 instance=ExtResource("2_gp5so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049238205, 0.8286388, -24.02619)
-
 [node name="TheChild" parent="." unique_id=1674126972 instance=ExtResource("1_f33rb")]
 transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -8.1203, 0.65223086, -10.431711)
+
+[node name="DetourCritter" parent="." unique_id=1327436015 instance=ExtResource("2_gp5so")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=384796451]
 navigation_mesh = SubResource("NavigationMesh_1ncg2")
@@ -231,3 +235,11 @@ offset_right = 120.0
 offset_bottom = 60.0
 text = "5:00"
 label_settings = SubResource("LabelSettings_dy57i")
+
+[node name="TextureRect" type="TextureRect" parent="Interface" unique_id=1832927047]
+layout_mode = 0
+offset_right = 249.0
+offset_bottom = 249.0
+texture = SubResource("ViewportTexture_c1rww")
+expand_mode = 2
+stretch_mode = 4

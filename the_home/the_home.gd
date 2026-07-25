@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var THE_CHILD: TheChild = $TheChild
-@onready var THE_CREATURE: TheCreature = $TheCreature
+#@onready var THE_CREATURE: TheCreature = $TheCreature
+@onready var THE_CREATURE: TheDetourCreature = $DetourCritter
 @onready var ROOMS: Node3D = $NavigationRegion3D/Rooms
 @onready var INTERFACE: Control = $Interface
 @onready var EYELIDS: Control = $Interface/WAKE_UP
