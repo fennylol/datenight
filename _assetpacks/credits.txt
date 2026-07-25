@@ -1,7 +1,6 @@
 "Low Poly Furniture" by Abstract_Duck (https://store.godotengine.org/publisher/abstract-duck/)
 "Fantasy Props MegaKit" by Quaternius (https://store.godotengine.org/publisher/quaternius/)
 "KayKit : Furniture Bits" by Kay Lousberg (https://kaylousberg.itch.io/)
-"Furniture Asset Pack 01" by Dan Sanderson (https://danthai.itch.io/)
 "Appliances SnapNSet Starter" (parts 1 and 2) by Alstra Infinite (https://store.godotengine.org/publisher/alstrainfinite/)
 "Kitchen Modular Set" by ALEX293517 (https://alex293517.itch.io/)
 "Fireplace" by AKD87 (https://akd87.itch.io/)

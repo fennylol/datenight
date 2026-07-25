@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://rktmv0vl4817" path="res://the_home/rooms/meshs/kitchen_mesh.tres" id="1_jpoxh"]
 [ext_resource type="Script" uid="uid://becb7i0qtyy5d" path="res://the_home/rooms/room.gd" id="1_rfqsl"]
+[ext_resource type="PackedScene" uid="uid://e3nxc3lfpska" path="res://interactables/Lamp.tscn" id="3_aebq6"]
 [ext_resource type="PackedScene" uid="uid://bbxe8kj8bffe2" path="res://_assetpacks/AppliancePack1_PolyPack-Starter_alstrainfinite/GLB/KA-F600_Stove_V1.glb" id="3_lofx4"]
 [ext_resource type="PackedScene" uid="uid://bqh64dlwsa2et" path="res://_assetpacks/AppliancePack1_PolyPack-Starter_alstrainfinite/GLB/KA-F1000_FridgeSBS_V1.glb" id="4_3orbg"]
 [ext_resource type="PackedScene" uid="uid://dvedavaf1m10k" path="res://_assetpacks/KitchenModularSet - ALEX293517/BROWN_KITCHEN_BASE_CABINET.glb" id="5_e8pdy"]
@@ -28,8 +29,15 @@ data = PackedVector3Array(5, 0, 0, 0, 4, 0, 0, 0, 0, 5, 0, 0, 5, 4, 0, 0, 4, 0, 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3br5d"]
 size = Vector3(2.1967773, 0.81103516, 0.7666626)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_51ms8"]
+size = Vector3(2.7875977, 0.52960205, 0.6513214)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lcw3o"]
+height = 1.1477051
+radius = 0.36621094
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gna5v"]
-size = Vector3(3.8723145, 0.81103516, 0.7666626)
+size = Vector3(3.8723145, 0.81103516, 1.2479401)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aebq6"]
 size = Vector3(1.3408813, 2.468567, 0.7666626)
@@ -45,6 +53,9 @@ metadata/_custom_type_script = "uid://becb7i0qtyy5d"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2066725794]
 mesh = ExtResource("1_jpoxh")
 
+[node name="Lamp" parent="." unique_id=1074660112 instance=ExtResource("3_aebq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5907805, 1.1112169, -0.4355917)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=102887217]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=300765794]
@@ -57,15 +68,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7996893, 0.98007894, -2.209
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25756836, -0.52612305, -0.06484985)
 shape = SubResource("BoxShape3D_3br5d")
 
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=433182550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9335754, 0.98007894, -0.5570663)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1577583015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47558594, -0.71383667, 0.29096222)
+shape = SubResource("BoxShape3D_51ms8")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=2082864521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9335754, 0.98007894, -0.5570663)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=211182738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5658278, -0.6760162, 0.10535228)
+shape = SubResource("CylinderShape3D_lcw3o")
+
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=795985566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2088132, 0.98007894, -4.3298054)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=385476443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0953369, -0.52612305, -0.06484985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0953369, -0.52612305, -0.2830057)
 shape = SubResource("BoxShape3D_gna5v")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3" unique_id=2062565987]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2035513, -0.52612305, 1.9756732)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.410469, -0.52612305, 1.9756732)
 shape = SubResource("BoxShape3D_gna5v")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1378709355]
@@ -134,10 +159,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9623733, 0.8626636, -2.3412
 transform = Transform3D(-0.122650884, 0, -0.9924499, 0, 1, 0, 0.9924499, 0, -0.122650884, 4.561784, 0.8361913, -0.7151254)
 
 [node name="Barrel2" parent="." unique_id=544248074 instance=ExtResource("16_kab1m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456352, 0, -0.63248014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5092423, 0, -0.47517145)
 
 [node name="Bench2" parent="." unique_id=610744608 instance=ExtResource("17_7jtct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2711425, 0.007261934, -0.49551702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4050658, 0.007261934, -0.3258415)
 
 [node name="pictureframe_large_A2" parent="." unique_id=674095680 instance=ExtResource("18_64jv1")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.11001, 2.5029192, 0.059535027)

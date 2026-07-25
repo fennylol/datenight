@@ -11,4 +11,5 @@ func _ready() -> void:
 
 func on_interact() -> void:
    Powered = not Powered
+   Bulb.visible = Powered
    Bulb.light_energy = Power if Powered else 0.0

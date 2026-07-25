@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://jrdcti88872i" path="res://_assetpacks/KayKitFurniture Bits - Kay Lousberg/gltf/shelf_B_small.gltf" id="11_rlxb8"]
 [ext_resource type="Texture2D" uid="uid://c840jeaql25lw" path="res://_assetpacks/Doors-alstrainfinite/Texture.png" id="12_c53k1"]
 [ext_resource type="ArrayMesh" uid="uid://cj4p37q8prapt" path="res://_assetpacks/Doors-alstrainfinite/Door4.obj" id="13_jlk1x"]
+[ext_resource type="PackedScene" uid="uid://kini0u6ubull" path="res://_assetpacks/FantasyPropsMEgakit-Quaternius/glTF/BookGroup_Small_1.gltf" id="14_oxblu"]
+[ext_resource type="PackedScene" uid="uid://sfeg3600uuif" path="res://_assetpacks/FantasyPropsMEgakit-Quaternius/glTF/Bookcase_2.gltf" id="15_kqk7l"]
+[ext_resource type="PackedScene" uid="uid://dqdwqjwjtytnh" path="res://interactables/Lamp_Standing.tscn" id="16_cnbo0"]
+[ext_resource type="PackedScene" uid="uid://e3nxc3lfpska" path="res://interactables/Lamp.tscn" id="17_tr1xp"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d8got"]
 data = PackedVector3Array(5.4999, 5, -0.0002, 4, 0, -0.0002, 5.4999, 0, -0.0002, 5.4999, 5, -0.0002, 4, 3, -0.0002, 4, 0, -0.0002, 0, 5, -0.0002, 4, 3, -0.0002, 5.4999, 5, -0.0002, 0, 5, -0.0002, 1.4999, 3, -0.0002, 4, 3, -0.0002, 0, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -0.0002, 1.4999, 0, -0.0002, 1.4999, 3, -0.0002, 0, 5, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 5, -0.0002, 0, 3, -2.5001, 0, 0, -2.5001, 0, 5, -13, 0, 3, -2.5001, 0, 5, -0.0002, 0, 5, -13, 0, 3, -4.5002, 0, 3, -2.5001, 0, 0, -13, 0, 3, -4.5002, 0, 5, -13, 0, 0, -13, 0, 0, -4.5002, 0, 3, -4.5002, 5.4999, 0, -0.0002, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 0, -0.0002, 5.4999, 0, -10.0001, 5.4999, 3, -10.0001, 5.4999, 5, -0.0002, 5.4999, 3, -10.0001, 5.4999, 3, -12.0001, 5.4999, 5, -0.0002, 5.4999, 3, -12.0001, 5.4999, 5, -13, 5.4999, 5, -13, 5.4999, 3, -12.0001, 5.4999, 0, -12.0001, 5.4999, 5, -13, 5.4999, 0, -12.0001, 5.4999, 0, -13, 0, 0, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -13, 0, 5, -13, 5.4999, 5, -13, 5.4999, 0, -13, 0, 0, -4.5002, 0, 0, -13, 5.4999, 0, -13, 5.4999, 0, -12.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 6, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -12.0001, 6, 0, -10.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -12.0001, 5.4999, 0, -10.0001, 0, 0, -4.5002, 5.4999, 0, -10.0001, 0, 0, -2.5001, 5.4999, 0, -10.0001, 1.4999, 0, -0.0002, 0, 0, -2.5001, 0, 0, -0.0002, 0, 0, -2.5001, 1.4999, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, -0.0002, 5.4999, 0, -0.0002, 4, 0, -0.0002, 5.4999, 0, -10.0001, 4, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 0, -0.0002, 4, 0, -0.0002, 4, 0, 0.5, 1.4999, 0, 0.5, 5.4999, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -12.0001, 5.4999, 3, -12.0001, 6, 3, -12.0001, 6, 0, -12.0001, 5.4999, 0, -10.0001, 6, 3, -10.0001, 5.4999, 3, -10.0001, 5.4999, 0, -10.0001, 6, 0, -10.0001, 6, 3, -10.0001, 4, 3, -0.0002, 4, 0, 0.5, 4, 0, -0.0002, 4, 3, -0.0002, 4, 3, 0.5, 4, 0, 0.5, 1.4999, 0, -0.0002, 1.4999, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 0, -0.0002, 1.4999, 0, 0.5, 1.4999, 3, 0.5, 6, 3, -12.0001, 5.4999, 3, -10.0001, 6, 3, -10.0001, 6, 3, -12.0001, 5.4999, 3, -12.0001, 5.4999, 3, -10.0001, 5.4999, 5, -13, 0, 5, -0.0002, 5.4999, 5, -0.0002, 5.4999, 5, -13, 0, 5, -13, 0, 5, -0.0002, 4, 3, 0.5, 1.4999, 3, -0.0002, 1.4999, 3, 0.5, 4, 3, 0.5, 4, 3, -0.0002, 1.4999, 3, -0.0002)
@@ -79,13 +83,13 @@ transform = Transform3D(-0.04312581, 0, 0.9990697, 0, 1, 0, -0.9990697, 0, -0.04
 transform = Transform3D(0.6749251, 0, 0.73788625, 0, 1, 0, -0.73788625, 0, 0.6749251, 1.486272, 0.15349936, -11.233677)
 
 [node name="cactus_small_B2" parent="." unique_id=995430436 instance=ExtResource("9_ecujo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39059305, 2.5033953e-07, -10.449859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.574943, 1.1049856, -12.635592)
 
 [node name="pillow_A2" parent="." unique_id=29762417 instance=ExtResource("10_oxblu")]
 transform = Transform3D(1, 0, 0, 0, 0.60565835, -0.7957248, 0, 0.7957248, 0.60565835, 1.6877718, 0.81749403, -11.402578)
 
 [node name="shelf_B_small2" parent="." unique_id=997845842 instance=ExtResource("11_rlxb8")]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2.8156152, 1.0014479, -12.999999)
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 4.3099136, 1.0014479, -12.999999)
 
 [node name="Door4" type="MeshInstance3D" parent="." unique_id=1991834409]
 transform = Transform3D(-6.556708e-08, 0, -1.6, 0, 1.5, 0, 1.5, 0, -6.9938224e-08, 2.109, 0.02, 0.318)
@@ -96,3 +100,15 @@ mesh = ExtResource("13_jlk1x")
 transform = Transform3D(-6.556708e-08, 0, 1.6, 0, 1.5, 0, -1.5, 0, -6.9938224e-08, 3.387, 0.02, 0.318)
 material_override = SubResource("StandardMaterial3D_khx5h")
 mesh = ExtResource("13_jlk1x")
+
+[node name="BookGroup_Small_12" parent="." unique_id=803183836 instance=ExtResource("14_oxblu")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.150051, 1.1257797, -12.673749)
+
+[node name="Bookcase_22" parent="." unique_id=1431447787 instance=ExtResource("15_kqk7l")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.7441654, 0.017383013, -12.678692)
+
+[node name="Lamp" parent="." unique_id=1074660112 instance=ExtResource("16_cnbo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8148836, -1.1920929e-07, -10.114905)
+
+[node name="Lamp2" parent="." unique_id=805455753 instance=ExtResource("17_tr1xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3481186, 1.7860998, -1.52)
