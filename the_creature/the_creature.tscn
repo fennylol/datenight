@@ -15,6 +15,9 @@ uv1_offset = Vector3(0.5, 0, 0)
 radius = 0.2
 height = 0.5
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r73wq"]
+radius = 1.25
+
 [node name="TheCreature" type="CharacterBody3D" unique_id=738065402]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -33,3 +36,9 @@ shape = SubResource("CapsuleShape3D_bsava")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1850406706]
 material_override = SubResource("StandardMaterial3D_r73wq")
 mesh = SubResource("CapsuleMesh_bsava")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1203253795]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=443713149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5815842, 0)
+shape = SubResource("CylinderShape3D_r73wq")

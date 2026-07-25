@@ -9,23 +9,33 @@ extends Node3D
 var last_room: Room
 var game_time : float = 0.0
 var tutorial_level : int = 0
-const MAX_TUTORIAL_LEVEL: int = 4
+const MAX_TUTORIAL_LEVEL : int = 4
+const SECONDS_TO_GAME_HOUR : float = 90.0
+const HOUR_DATE_NIGHT_ENDS : float = 5.0
+
+func _process(delta: float) -> void:
+   ## ADVANCE GAME TIME. FIND CURRENT HOUR. 
+   game_time += delta
+   var current_hour = floor( game_time / SECONDS_TO_GAME_HOUR )
+   ## TUTORIAL IF EARLY, END GAME (GOOD ENDING) IF LATE
+   if current_hour <= 0.0: _attempt_tutorial(delta)
+   if current_hour >= HOUR_DATE_NIGHT_ENDS: _game_end(true)
+   
+   ## SEND INFORMATION TO CREATURE
+   var packet = InfoPacket.new()
+   packet.child_location = THE_CHILD.position
+   THE_CREATURE.recieve_information(packet)
+   
+   var closest_room: Room = _get_containing_room()
+   if closest_room != last_room:
+      print(closest_room.RoomName if closest_room else "idk where you are LMAO")
+      last_room = closest_room
 
 func _get_containing_room() -> Room:
    for room:Room in ROOMS.get_children():
       if room.BoundingBox.has_point(THE_CHILD.position):
          return room
    return null
-
-func _process(delta: float) -> void:
-   game_time += delta
-   _attempt_tutorial(delta)
-   THE_CREATURE.set_movement_target(THE_CHILD.position)
-   
-   var closest_room: Room = _get_containing_room()
-   if closest_room != last_room:
-      print(closest_room.RoomName if closest_room else "idk where you are LMAO")
-      last_room = closest_room
 
 func _attempt_tutorial(delta):
    if tutorial_level == 0:
@@ -56,3 +66,5 @@ func _attempt_tutorial(delta):
          lights.visible = false
          tutorial_level = 3
    
+func _game_end(good_ending: bool = false):
+   pass

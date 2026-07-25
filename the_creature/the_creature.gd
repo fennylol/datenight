@@ -9,6 +9,9 @@ var angle_to_target: float
 func _ready() -> void:
    navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
+func recieve_information(packet : InfoPacket) -> void:
+   set_movement_target(packet.child_location)
+
 func set_movement_target(movement_target: Vector3):
    navigation_agent.set_target_position(movement_target)
 
