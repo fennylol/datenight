@@ -1,35 +1,7 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://c17wrm05tx7h3"]
 
-[ext_resource type="Texture2D" uid="uid://b6qdx8jkeop3p" path="res://RAWS/date_night_house_02_Wallpaper001A_2K-JPG_Color.jpg" id="1_3lqx5"]
-[ext_resource type="Texture2D" uid="uid://yn6k7rir5to8" path="res://RAWS/date_night_house_02_Wallpaper001A_2K-JPG_Roughness.png" id="2_fnno0"]
-[ext_resource type="Texture2D" uid="uid://dny66h6lnkun2" path="res://RAWS/date_night_house_02_Wallpaper001A_2K-JPG_NormalGL.jpg" id="3_sf7kb"]
-[ext_resource type="Texture2D" uid="uid://dtjrf8a71sylf" path="res://RAWS/date_night_house_02_WoodFloor041_2K-JPG_Color.jpg" id="4_wvf4l"]
-[ext_resource type="Texture2D" uid="uid://cro6spug7fa1x" path="res://RAWS/date_night_house_02_WoodFloor041_2K-JPG_Roughness.png" id="5_7kgi3"]
-[ext_resource type="Texture2D" uid="uid://d1imufc2vmtlp" path="res://RAWS/date_night_house_02_WoodFloor041_2K-JPG_NormalGL.jpg" id="6_k1fxx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rph4m"]
-resource_name = "Drywall"
-cull_mode = 2
-albedo_texture = ExtResource("1_3lqx5")
-metallic_texture = ExtResource("2_fnno0")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("2_fnno0")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("3_sf7kb")
-metadata/_gltf_primary_texture_coord = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2vtf"]
-resource_name = "Wood_Floor"
-cull_mode = 2
-albedo_texture = ExtResource("4_wvf4l")
-metallic_texture = ExtResource("5_7kgi3")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("5_7kgi3")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("6_k1fxx")
-metadata/_gltf_primary_texture_coord = 0
+[ext_resource type="Material" uid="uid://bce6tle1xjwaw" path="res://the_home/rooms/materials/drywall.tres" id="1_qfymj"]
+[ext_resource type="Material" uid="uid://088nw4dgopxj" path="res://the_home/rooms/materials/wood_floor.tres" id="2_7v377"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eb0ny"]
 _surfaces = [{
@@ -63,7 +35,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 114,
 "index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAAAFAAQABAAFAAYABAAGAAcABwAGAAgABwAIAAkACgALAAwACgANAAsADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMAJgAjACUAJgAnACMAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAvACwAMAAxAC8AMgAzADQAMgA1ADMAMwA1ADYAMwA2ADcAOAA5ADoAOAA7ADkAPAA5ADsAPAA9ADkA"),
-"material": SubResource("StandardMaterial3D_rph4m"),
+"material": ExtResource("1_qfymj"),
 "name": "Drywall",
 "primitive": 3,
 "uv_scale": Vector4(6.462018, 5.9482675, 0, 0),
@@ -75,7 +47,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 24,
 "index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAQAFAAQABQAGAAQABwAEAAYABQAIAAYABQAJAAgA"),
-"material": SubResource("StandardMaterial3D_l2vtf"),
+"material": ExtResource("2_7v377"),
 "name": "Wood_Floor",
 "primitive": 3,
 "uv_scale": Vector4(4.587864, 5.948268, 0, 0),
