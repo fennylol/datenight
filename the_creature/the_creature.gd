@@ -3,21 +3,37 @@ class_name TheCreature
 
 @export var movement_speed: float = 1.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var Area: Area3D = $Area3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var current_target := Vector3.ZERO
+var knowledge : InfoPacket
+var current_target : Node3D
 var angle_to_target : float
+var NearbyThings: Array[Interactable]
+#var eagerness : float
 
 func _ready() -> void:
    navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+   Area.body_entered.connect(_on_area_entered)
+   Area.body_exited.connect(_on_area_exited)
+
+func _process(delta: float) -> void:
+   if current_target == null: print("no target")
+   else: print(current_target.global_position)
+   
+   ## TURN OFF LAMP IF WITHIN RANGE
+   if current_target is Light and NearbyThings.has(current_target):
+      if current_target.Powered == false: current_target.on_interact()
+      current_target = null
+   
+   ## CHOOSE TARGET
+   if current_target == null:
+      if not knowledge.lit_lamp_list.is_empty():
+         var choice = randi_range(0, knowledge.lit_lamp_list.size()-1)
+         current_target = knowledge.lit_lamp_list[choice]
+         set_movement_target(current_target.global_position)
 
 func recieve_information(packet : InfoPacket) -> void:
-   #if current_target != Vector3.ZERO: set_movement_target(current_target)
-   #print(packet.lit_lamp_locations)
-   if packet.lit_lamp_locations.is_empty():
-      set_movement_target(packet.child_location)
-   #else:
-   #   var choice = randi_range(0,packet.lit_lamp_locations.size()-1)
-   #   set_movement_target(packet.lit_lamp_locations[choice])
+   knowledge = packet
 
 func set_movement_target(movement_target: Vector3):
    navigation_agent.set_target_position(movement_target)
@@ -44,3 +60,13 @@ func _on_velocity_computed(safe_velocity: Vector3, _delta:float):
    velocity = safe_velocity
    #if not is_on_floor(): velocity.y -= gravity * delta
    move_and_slide()
+
+func _on_area_entered(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Interactable:
+      NearbyThings.append(parent)
+
+func _on_area_exited(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Interactable:
+      NearbyThings.erase(parent)
