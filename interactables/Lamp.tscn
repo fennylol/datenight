@@ -120,9 +120,11 @@ metadata/_custom_type_script = "uid://cjss7jhl2h0a3"
 
 [node name="Bulb" type="OmniLight3D" parent="." unique_id=725069828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56707746, 0)
-light_color = Color(0.6847828, 0.5246509, 0.4504463, 1)
+light_color = Color(0.65074253, 0.50516665, 0.36927143, 1)
 shadow_enabled = true
 shadow_caster_mask = 4294967293
+omni_range = 30.0
+omni_attenuation = 2.5
 
 [node name="Cylinder" type="MeshInstance3D" parent="." unique_id=502970996]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

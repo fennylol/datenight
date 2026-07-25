@@ -1,11 +1,13 @@
 extends CharacterBody3D
 class_name TheChild
 
-const SPEED = 5.0
+const SPEED = 2.5
 const JUMP_VELOCITY = 4.5
+const CAMERA_ROT_SPEED = 0.1
 
-@onready var camera = $Camera3D
+@onready var camera: Camera3D = $Camera3D
 @onready var Area: Area3D = $Area3D
+@onready var Flashlight: SpotLight3D = $SpotLight3D
 
 var mouse_captured = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -29,6 +31,7 @@ func _ready():
    register_input.call("right", KEY_D)
    register_input.call("up", KEY_W)
    register_input.call("interact", KEY_E)
+   register_input.call("flashlight", KEY_Q)
    register_input.call("capture_mouse", KEY_ESCAPE)
    
    Area.body_entered.connect(_on_area_entered)
@@ -47,8 +50,8 @@ func _on_area_exited(body: Node3D) -> void:
 # mouse
 func _unhandled_input(event):
    if event is InputEventMouseMotion and  mouse_captured:
-      rotate_y(-event.relative.x * .005)
-      camera.rotate_x(-event.relative.y * .005)
+      rotate_y(-event.relative.x * .001)
+      camera.rotate_x(-event.relative.y * .001)
       camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 # mouse capture
@@ -62,6 +65,9 @@ func _process(_delta):
    if Input.is_action_just_pressed("interact"):
       for thing:Interactable in NearbyThings:
          thing.on_interact()
+   
+   if Input.is_action_just_pressed("flashlight"):
+      Flashlight.visible = not Flashlight.visible
    
 
 # movement

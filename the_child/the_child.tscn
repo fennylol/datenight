@@ -20,6 +20,15 @@ script = ExtResource("1_jl4h2")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1647414109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1065169170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+light_color = Color(1, 0.8559276, 0.6893704, 1)
+light_energy = 2.5
+spot_range = 15.0
+spot_attenuation = 3.0
+spot_angle = 30.0
+spot_angle_attenuation = 3.0
+
 [node name="pill" type="MeshInstance3D" parent="." unique_id=1463893016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CapsuleMesh_r2f68")

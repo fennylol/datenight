@@ -61,13 +61,16 @@ script = ExtResource("1_idelu")
 metadata/_custom_type_script = "uid://cjss7jhl2h0a3"
 
 [node name="lamp_standing" type="MeshInstance3D" parent="." unique_id=918834559]
+layers = 2
 mesh = SubResource("ArrayMesh_24dk6")
 
 [node name="Bulb" type="OmniLight3D" parent="." unique_id=725069828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1179526, 0)
-light_color = Color(0.6847828, 0.5246509, 0.4504463, 1)
+light_color = Color(0.6509804, 0.5058824, 0.36862746, 1)
 shadow_enabled = true
 shadow_caster_mask = 4294967293
+omni_range = 30.0
+omni_attenuation = 2.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bulb" unique_id=1950280776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008186579, 0)

@@ -4,8 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://dduey3jktrxsa" path="res://the_creature/creature.png" id="2_cjumy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bsava"]
-radius = 0.001
-height = 1.5
+radius = 0.2
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r73wq"]
+albedo_texture = ExtResource("2_cjumy")
+uv1_offset = Vector3(0.5, 0, 0)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bsava"]
+radius = 0.2
+height = 0.5
 
 [node name="TheCreature" type="CharacterBody3D" unique_id=738065402]
 axis_lock_angular_x = true
@@ -13,11 +21,15 @@ axis_lock_angular_z = true
 script = ExtResource("1_r73wq")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1904408976]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-billboard = 1
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.75, 0)
+visible = false
 texture = ExtResource("2_cjumy")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=403023630]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1900019993]
 shape = SubResource("CapsuleShape3D_bsava")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1850406706]
+material_override = SubResource("StandardMaterial3D_r73wq")
+mesh = SubResource("CapsuleMesh_bsava")
