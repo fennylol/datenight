@@ -4,13 +4,20 @@ class_name TheCreature
 @export var movement_speed: float = 1.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var angle_to_target: float
+var current_target := Vector3.ZERO
+var angle_to_target : float
 
 func _ready() -> void:
    navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
 func recieve_information(packet : InfoPacket) -> void:
-   set_movement_target(packet.child_location)
+   #if current_target != Vector3.ZERO: set_movement_target(current_target)
+   #print(packet.lit_lamp_locations)
+   if packet.lit_lamp_locations.is_empty():
+      set_movement_target(packet.child_location)
+   #else:
+   #   var choice = randi_range(0,packet.lit_lamp_locations.size()-1)
+   #   set_movement_target(packet.lit_lamp_locations[choice])
 
 func set_movement_target(movement_target: Vector3):
    navigation_agent.set_target_position(movement_target)

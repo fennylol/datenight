@@ -23,7 +23,12 @@ func _process(delta: float) -> void:
    
    ## SEND INFORMATION TO CREATURE
    var packet = InfoPacket.new()
+   var lights_array : Array[Vector3]
+   for given_room : Room in ROOMS.get_children():
+      for light in given_room.Lights:
+         if light.Powered: lights_array.append(light.position)
    packet.child_location = THE_CHILD.position
+   packet.lit_lamp_locations = lights_array
    THE_CREATURE.recieve_information(packet)
    
    var closest_room: Room = _get_containing_room()

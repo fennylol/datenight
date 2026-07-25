@@ -22,23 +22,59 @@ script = ExtResource("1_bafek")
 RoomName = "South Hall"
 metadata/_custom_type_script = "uid://becb7i0qtyy5d"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1664783769]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1780309156]
 mesh = ExtResource("1_ivicx")
-script = ExtResource("1_bafek")
-RoomName = "South Hall"
-metadata/_custom_type_script = "uid://becb7i0qtyy5d"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1100280431]
+[node name="LIGHTS" type="Node3D" parent="." unique_id=1015082937]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2054598922]
+[node name="Lamp" parent="LIGHTS" unique_id=1074660112 instance=ExtResource("10_76lt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51887244, 2.3841858e-07, -0.5310703)
+
+[node name="BODIES" type="Node3D" parent="." unique_id=544334532]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BODIES" unique_id=1100280431]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BODIES/StaticBody3D" unique_id=2054598922]
 shape = SubResource("ConcavePolygonShape3D_ivicx")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=989227847]
+[node name="StaticBody3D2" type="StaticBody3D" parent="BODIES" unique_id=989227847]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.35735667, 0, -6.55376)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=980762241]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BODIES/StaticBody3D2" unique_id=980762241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084872246, 1.550738, 0)
 shape = SubResource("BoxShape3D_02pjd")
+
+[node name="OBJECT_MESH" type="Node3D" parent="." unique_id=1966908808]
+
+[node name="Cabinet2" parent="OBJECT_MESH" unique_id=2043504793 instance=ExtResource("4_5x1se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0932384, -2.3841858e-07, -1.7565547)
+
+[node name="BookGroup_Small_12" parent="OBJECT_MESH" unique_id=803183836 instance=ExtResource("5_76lt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2679553, 1.000583, -1.7648708)
+
+[node name="Bottle_12" parent="OBJECT_MESH" unique_id=446971317 instance=ExtResource("6_qsolc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.5213647, 0.99719894, -1.7285107)
+
+[node name="pictureframe_small_A3" parent="OBJECT_MESH" unique_id=1667931578 instance=ExtResource("7_ec8ve")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 2, 0.018)
+
+[node name="pictureframe_small_A4" parent="OBJECT_MESH" unique_id=872398195 instance=ExtResource("7_ec8ve")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 2, 0.018)
+
+[node name="pictureframe_small_A6" parent="OBJECT_MESH" unique_id=353294019 instance=ExtResource("7_ec8ve")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7, 2, 0.018)
+
+[node name="pictureframe_small_A8" parent="OBJECT_MESH" unique_id=864676935 instance=ExtResource("7_ec8ve")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 2, 0.018)
+
+[node name="pictureframe_small_A10" parent="OBJECT_MESH" unique_id=224063431 instance=ExtResource("7_ec8ve")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 2, 0.018)
+
+[node name="pictureframe_small_B2" parent="OBJECT_MESH" unique_id=1405825878 instance=ExtResource("8_btdj2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.025893211, 2.141544, -8.269886)
+
+[node name="pictureframe_small_C2" parent="OBJECT_MESH" unique_id=591276657 instance=ExtResource("9_jc040")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.015369415, 2.1203392, -4.660167)
 
 [node name="Door3" type="MeshInstance3D" parent="." unique_id=1958552164]
 transform = Transform3D(-2, 0, -3.9258907e-07, 0, 1.5, 0, 3.019916e-07, 0, -2.6, -0.31491852, 0.07173318, -6.5056376)
@@ -49,36 +85,3 @@ transform = Transform3D(0.5, 0, 0, 0, 0.6666667, 0, 0, 0, 0.38461542, 0.14185877
 light_color = Color(0.6847828, 0.5246509, 0.4504463, 1)
 shadow_enabled = true
 shadow_caster_mask = 4294967293
-
-[node name="Cabinet2" parent="." unique_id=2043504793 instance=ExtResource("4_5x1se")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0932384, -2.3841858e-07, -1.7565547)
-
-[node name="BookGroup_Small_12" parent="." unique_id=803183836 instance=ExtResource("5_76lt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2679553, 1.000583, -1.7648708)
-
-[node name="Bottle_12" parent="." unique_id=446971317 instance=ExtResource("6_qsolc")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.5213647, 0.99719894, -1.7285107)
-
-[node name="pictureframe_small_A3" parent="." unique_id=1667931578 instance=ExtResource("7_ec8ve")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 2, 0.018)
-
-[node name="pictureframe_small_A4" parent="." unique_id=872398195 instance=ExtResource("7_ec8ve")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 2, 0.018)
-
-[node name="pictureframe_small_A6" parent="." unique_id=353294019 instance=ExtResource("7_ec8ve")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7, 2, 0.018)
-
-[node name="pictureframe_small_A8" parent="." unique_id=864676935 instance=ExtResource("7_ec8ve")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 2, 0.018)
-
-[node name="pictureframe_small_A10" parent="." unique_id=224063431 instance=ExtResource("7_ec8ve")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 2, 0.018)
-
-[node name="pictureframe_small_B2" parent="." unique_id=1405825878 instance=ExtResource("8_btdj2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.025893211, 2.141544, -8.269886)
-
-[node name="pictureframe_small_C2" parent="." unique_id=591276657 instance=ExtResource("9_jc040")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.015369415, 2.1203392, -4.660167)
-
-[node name="Lamp" parent="." unique_id=1074660112 instance=ExtResource("10_76lt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51887244, 2.3841858e-07, -0.5310703)

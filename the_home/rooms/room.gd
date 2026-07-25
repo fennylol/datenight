@@ -11,7 +11,4 @@ var BoundingBox: AABB
 
 func _ready() -> void:
    BoundingBox = GlobalUtil.calculate_spatial_bounds(self, false)
-
-func _find_lights():
-   for i in get_children():
-      pass
+   for i in find_child("LIGHTS").get_children(): Lights.append(i)

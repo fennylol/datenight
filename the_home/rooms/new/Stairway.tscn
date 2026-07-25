@@ -21,23 +21,29 @@ metadata/_custom_type_script = "uid://becb7i0qtyy5d"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=775945803]
 mesh = ExtResource("1_yppy1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1571535979]
+[node name="LIGHTS" type="Node3D" parent="." unique_id=1036545235]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1787265830]
+[node name="BODIES" type="Node3D" parent="." unique_id=1414710057]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BODIES" unique_id=1571535979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BODIES/StaticBody3D" unique_id=1787265830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.125, -0.2)
 shape = SubResource("BoxShape3D_c1rww")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1500156075]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BODIES/StaticBody3D" unique_id=1500156075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.4)
 shape = SubResource("BoxShape3D_yd35y")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1137333234]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BODIES/StaticBody3D" unique_id=1137333234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 1, -0.2)
 shape = SubResource("BoxShape3D_xlftk")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1669505311]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BODIES/StaticBody3D" unique_id=1669505311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 1, -0.2)
 shape = SubResource("BoxShape3D_xlftk")
 
-[node name="babygate" parent="." unique_id=1576651696 instance=ExtResource("3_gcpgb")]
+[node name="OBJECT_MESH" type="Node3D" parent="." unique_id=849217312]
+
+[node name="babygate" parent="OBJECT_MESH" unique_id=1576651696 instance=ExtResource("3_gcpgb")]
 transform = Transform3D(0.935, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.9870548, 1.1020268, -0.46955156)
