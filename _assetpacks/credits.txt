@@ -1,3 +1,5 @@
+3D ASSETS
+
 "Low Poly Furniture" by Abstract_Duck (https://store.godotengine.org/publisher/abstract-duck/)
 "Fantasy Props MegaKit" by Quaternius (https://store.godotengine.org/publisher/quaternius/)
 "KayKit : Furniture Bits" by Kay Lousberg (https://kaylousberg.itch.io/)
@@ -6,3 +8,7 @@
 "Fireplace" by AKD87 (https://akd87.itch.io/)
 "Doors - Asset" by ALSTRAINFINITE (https://alstrainfinite.itch.io/)
 "Victorian Office MiniPack" by Thracco (https://thracco.itch.io/)
+
+FONTS
+
+"Digital-7" by Alexander Sizenko (https://www.1001fonts.com/users/style-7/)

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nwvfpjohhqx2" path="res://the_home/rooms/new/SouthHall.tscn" id="10_k5hsa"]
 [ext_resource type="PackedScene" uid="uid://b1w66ao2woek4" path="res://the_home/rooms/new/Stairway.tscn" id="11_8osdg"]
 [ext_resource type="PackedScene" uid="uid://g5aicb6rqfip" path="res://the_home/rooms/new/Study.tscn" id="12_nej5g"]
+[ext_resource type="FontFile" uid="uid://sdwgpojn51cy" path="res://_assetpacks/Digital7-Alexander Sizenko/digital-7 (mono).ttf" id="14_gp5so"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h656q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,6 +41,13 @@ agent_max_slope = 0.02
 
 [sub_resource type="LabelSettings" id="LabelSettings_3br5d"]
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_dy57i"]
+font = ExtResource("14_gp5so")
+font_size = 50
+font_color = Color(1, 0.19999999, 0.19999999, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TheHouse" type="Node3D" unique_id=1201681597]
 script = ExtResource("1_2cjki")
@@ -190,22 +198,8 @@ rotation = -0.34906584
 scale = Vector2(776.8305, 264.50003)
 mesh = SubResource("QuadMesh_dy57i")
 
-[node name="LIGHTS" type="Control" parent="Interface" unique_id=571607553]
+[node name="TEXT" type="Label" parent="Interface" unique_id=14627747]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Interface/LIGHTS" unique_id=14627747]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -220,3 +214,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "TURN ON THE LIGHTS"
 label_settings = SubResource("LabelSettings_3br5d")
+
+[node name="COUNTDOWN" type="Label" parent="Interface" unique_id=288864335]
+visible = false
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 60.0
+text = "5:00"
+label_settings = SubResource("LabelSettings_dy57i")

@@ -14,7 +14,7 @@ enum DeviceID {KYBRD, MSBTN, JYBTN, JYAXS}
 @onready var Area: Area3D = $Area3D
 @onready var Flashlight: SpotLight3D = $SpotLight3D
 
-var mouse_captured = true
+var allow_inputs = false
 var flashlight_velocity := Vector2.ZERO
 var NearbyThings: Array[Interactable]
 
@@ -62,7 +62,7 @@ func _on_area_exited(body: Node3D) -> void:
 
 # mouse
 func _unhandled_input(event):
-   if event is InputEventMouseMotion and mouse_captured:
+   if event is InputEventMouseMotion and allow_inputs:
       rotate_y(-event.relative.x * CAM_ROT_SPEED_MOUSE)
       Flashlight.rotate_y(event.relative.x * CAM_ROT_SPEED_MOUSE)
       Camera.rotate_x(-event.relative.y * CAM_ROT_SPEED_MOUSE)
@@ -70,10 +70,10 @@ func _unhandled_input(event):
 
 func _process(delta):
    ## CAPTURE AND FREE CAMERA ON ESC
-   if Input.is_action_just_pressed("capture_mouse") or \
-   Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not  mouse_captured:
-      mouse_captured = ! mouse_captured
-      if mouse_captured: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+   if Input.is_action_just_pressed("capture_mouse"):# or \
+   #Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not mouse_captured:
+      allow_inputs = ! allow_inputs
+      if allow_inputs: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
       else:Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
    
    ## HANDLE JOYSTICK CAMERA MOVEMENT
@@ -85,10 +85,10 @@ func _process(delta):
    #		head.rotate_x(-joystick_camera_input.y * get_physics_process_delta_time())
    #		head.rotation.x = clamp(head.rotation.x, -PI/2, PI/2)
    
-   if Input.is_action_just_pressed("interact"):
+   if Input.is_action_just_pressed("interact") and allow_inputs:
       for thing:Interactable in NearbyThings:
          thing.on_interact()
-   if Input.is_action_just_pressed("flashlight"):
+   if Input.is_action_just_pressed("flashlight") and allow_inputs:
       Flashlight.visible = not Flashlight.visible
    
    var diff := Vector2(
@@ -111,7 +111,7 @@ func _process(delta):
 
 # movement
 func _physics_process(delta):
-   if ! mouse_captured: return
+   if not allow_inputs: return
    if not is_on_floor(): velocity.y -= GRAVITY * delta
    
    ## NO JUMP
