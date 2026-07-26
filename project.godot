@@ -14,10 +14,12 @@ config/name="datenight"
 config/tags=PackedStringArray("achievable", "game", "gamejam")
 run/main_scene="uid://dkpwxgc8fnss7"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="uid://dc0xcn0y8whcl"
+boot_splash/image="uid://152qygt21os6"
 
 [display]
 
+window/size/viewport_width=960
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

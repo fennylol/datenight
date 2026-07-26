@@ -136,18 +136,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="top_lid" type="Node2D" parent="Interface/WAKE_UP" unique_id=590142545]
+position = Vector2(-64, 25)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=633197129]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(564.99994, -44.999985)
-scale = Vector2(1281.9998, 765.99994)
+position = Vector2(505.49997, -44.999985)
+scale = Vector2(3017, 765.99994)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=640994494]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1023.00006, 293)
+position = Vector2(1638.2275, 516.9245)
 rotation = 0.34906584
-scale = Vector2(776.8305, 264.50003)
+scale = Vector2(2086.2532, 264.50003)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=459710746]
@@ -166,25 +167,25 @@ mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Interface/WAKE_UP/top_lid" unique_id=790897722]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(195.99998, 266)
+position = Vector2(-321.79022, 454.46024)
 rotation = -0.34906584
-scale = Vector2(776.8305, 264.50003)
+scale = Vector2(1878.8722, 264.50003)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="bot_lid" type="Node2D" parent="Interface/WAKE_UP" unique_id=2009229277]
-position = Vector2(0, 320)
+position = Vector2(-64, 425)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=1232717064]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(566.565, 309)
-scale = Vector2(1281.9998, 749.99994)
+position = Vector2(592.5, 309)
+scale = Vector2(2609, 749.99994)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=1033775855]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(177, 2)
+position = Vector2(-211.42273, -139.37431)
 rotation = 0.34906584
-scale = Vector2(776.8305, 264.50003)
+scale = Vector2(1603.5322, 264.50003)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=115689010]
@@ -203,9 +204,9 @@ mesh = SubResource("QuadMesh_dy57i")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Interface/WAKE_UP/bot_lid" unique_id=752933504]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1023, -13)
+position = Vector2(1493.6027, -184.28535)
 rotation = -0.34906584
-scale = Vector2(776.8305, 264.50003)
+scale = Vector2(1778.4403, 264.50003)
 mesh = SubResource("QuadMesh_dy57i")
 
 [node name="TEXT" type="Label" parent="Interface" unique_id=14627747]

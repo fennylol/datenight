@@ -142,8 +142,8 @@ func _attempt_game_end(delta : float):
             HUD_TEXT.visible = false
             gameend_level += 1
    elif gameend_level == GameEnd.WAIT:
-      EYELIDS.get_child(0).position.y = 0.0
-      EYELIDS.get_child(1).position.y = 320.0
+      EYELIDS.get_child(0).position.y = 25.0
+      EYELIDS.get_child(1).position.y = 425.0
       HUD_TEXT.text = "YOU SURVIVED THE NIGHT"
       EYELIDS.visible = true
       HUD_TEXT.visible = true
