@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b1w66ao2woek4" path="res://the_home/rooms/new/Stairway.tscn" id="11_8osdg"]
 [ext_resource type="PackedScene" uid="uid://g5aicb6rqfip" path="res://the_home/rooms/new/Study.tscn" id="12_nej5g"]
 [ext_resource type="FontFile" uid="uid://sdwgpojn51cy" path="res://_assetpacks/Digital7-Alexander Sizenko/digital-7 (mono).ttf" id="14_gp5so"]
+[ext_resource type="Texture2D" uid="uid://cny7rkoprk8p5" path="res://RAWS/DateNight_banner.png" id="15_1ncg2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h656q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -75,6 +76,7 @@ environment = SubResource("Environment_1ncg2")
 transform = Transform3D(-0.71852255, 0, 0.69550365, 0, 1, 0, -0.69550365, 0, -0.71852255, -8.1203, 0.65223086, -10.431711)
 
 [node name="DetourCritter" parent="." unique_id=1327436015 instance=ExtResource("2_gp5so")]
+movement_speed = 2.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=384796451]
 navigation_mesh = SubResource("NavigationMesh_1ncg2")
@@ -236,10 +238,82 @@ offset_bottom = 60.0
 text = "5:00"
 label_settings = SubResource("LabelSettings_dy57i")
 
-[node name="TextureRect" type="TextureRect" parent="Interface" unique_id=1832927047]
+[node name="CREDITS" type="Control" parent="Interface" unique_id=821443790]
+process_mode = 3
+visible = false
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 360.0
+offset_right = 480.0
+offset_bottom = 360.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/CREDITS" unique_id=1550919479]
 layout_mode = 0
-offset_right = 249.0
-offset_bottom = 249.0
+offset_left = -256.0
+offset_top = 360.0
+offset_right = 256.0
+offset_bottom = 1440.0
+focus_mode = 2
+bbcode_enabled = true
+text = "created by fennylol and polytopeparty
+
+Developed in Godot 4.7 with assets created using Blender
+
+[font_size=\"25\"]ASSETS USED[/font_size]
+
+[font_size=\"20\"]3D Assets[/font_size]
+[left][b]Low Poly Furniture[/b] by Abstract_Duck
+    ([i]https://store.godotengine.org/publisher/abstract-duck/[/i])
+[b]Fantasy Props MegaKit[/b] by Quaternius
+    ([i]https://store.godotengine.org/publisher/quaternius/[/i])
+[b]KayKit : Furniture Bits[/b] by Kay Lousberg
+    ([i]https://kaylousberg.itch.io/[/i])
+[b]Appliances SnapNSet Starter[/b] ([i]parts 1 and 2[/i]) by Alstra Infinite 
+    ([i]https://store.godotengine.org/publisher/alstrainfinite/[/i])
+[b]Kitchen Modular Set[/b] by ALEX293517
+    ([i]https://alex293517.itch.io/[/i])
+[b]Fireplace[/b] by AKD87
+    ([i]https://akd87.itch.io/[/i])
+[b]Doors - Asset[/b] by ALSTRAINFINITE
+    ([i]https://alstrainfinite.itch.io/[/i])
+[b]Victorian Office MiniPack[/b] by Thracco
+    ([i]https://thracco.itch.io/[/i])
+[b]Goose[/b] by nodoxi
+    ([i]https://sketchfab.com/nodoxi[/i])[/left]
+[font_size=\"20\"]FONTS[/font_size]
+[left][b]Digital-7[/b] by Alexander Sizenko
+    ([i]https://www.1001fonts.com/users/style-7/[/i])[/left]
+
+No generative artificial intelligence (GenAI) was used in the creation of this game. 
+Made for GMTK Game Jam 2026.
+
+
+[font_size=\"20\"]THANK YOU FOR PLAYING[/font_size]
+
+"
+horizontal_alignment = 1
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="TextureRect" type="TextureRect" parent="Interface/CREDITS" unique_id=387025353]
+layout_mode = 0
+offset_left = -408.0
+offset_top = -80.0
+offset_right = 408.0
+offset_bottom = 80.0
+texture = ExtResource("15_1ncg2")
+expand_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Interface" unique_id=1832927047]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 148.0
+grow_horizontal = 0
 texture = SubResource("ViewportTexture_c1rww")
 expand_mode = 2
 stretch_mode = 4

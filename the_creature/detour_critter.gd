@@ -45,7 +45,7 @@ var OldTarget := Vector3.ZERO
 ## Defaults to the everything-is-layer-1 convention this project already
 ## uses elsewhere (see `_point_query.collision_mask` below).
 @export var line_of_sight_mask: int = 1
-@onready var AnimPlayer := $goose/AnimationPlayer
+@onready var AnimPlayer : AnimationPlayer = $goose/AnimationPlayer
 
 var final_goal := Vector3.ZERO
 var detour_point := Vector3.ZERO
@@ -63,9 +63,10 @@ func _ready() -> void:
    navigation_agent.velocity_computed.connect(_on_velocity_computed)
    Area.body_entered.connect(func(body: Node3D): var parent := body.get_parent(); if parent and parent is Interactable: NearbyThings.append(parent))
    Area.body_exited.connect (func(body: Node3D): var parent := body.get_parent(); if parent and parent is Interactable: NearbyThings.erase(parent))
-   AnimPlayer.animation_finished.connect(func(): AnimPlayer.play("walk_cycle/walk"))
-
-
+   #AnimPlayer.animation_finished.connect(func(): AnimPlayer.play("walk_cycle/walk"))
+   AnimPlayer.play("walk_cycle/walk")
+   AnimPlayer.current_animation = "walk_cycle/walk"
+   
    if gaze_cone == null:
       gaze_cone = get_tree().get_first_node_in_group("gaze_cone") as Area3D
    if gaze_cone == null:

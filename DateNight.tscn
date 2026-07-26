@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d3mi1mfubwe6k"]
+
+[ext_resource type="Script" uid="uid://30djgjfi46rr" path="res://date_night.gd" id="1_ufn6i"]
+
+[node name="DateNight" type="Node3D" unique_id=1868663760]
+script = ExtResource("1_ufn6i")

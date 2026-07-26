@@ -100,7 +100,7 @@ cone_reach = 8.0
 metadata/_custom_type_script = "uid://dap08oa4e615a"
 
 [node name="goose" type="Node3D" parent="." unique_id=821922340]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.75, 0.25)
+transform = Transform3D(-1, -2.7015124e-08, 8.3144e-08, 0, 0.95105654, 0.309017, -8.742278e-08, 0.309017, -0.95105654, 0, -0.8, 0)
 
 [node name="Armature" type="Node3D" parent="goose" unique_id=1346472874]
 
@@ -131,14 +131,14 @@ bones/3/parent = 2
 bones/3/rest = Transform3D(0.98613924, -0.16462885, 0.020659728, 0.16170686, 0.92573637, -0.34185278, 0.037153367, 0.34045526, 0.93952644, 1.8626451e-08, 0.1517558, -7.636845e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(1.8626451e-08, 0.1517558, -7.636845e-08)
-bones/3/rotation = Quaternion(0.07901328, -0.081505194, 0.32858506, 0.9376277)
+bones/3/rotation = Quaternion(0.17383651, -0.004202214, 0.0831429, 0.98124945)
 bones/3/scale = Vector3(1, 1.0000001, 1)
 bones/4/name = "Bone.004.L"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.97264785, -0.23164013, -0.01729384, 0.23228033, 0.9703935, 0.066198096, 0.0014476936, -0.06840444, 0.99765664, -1.21071935e-08, 0.40379936, -1.1175871e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(-1.21071935e-08, 0.40379936, -1.1175871e-08)
-bones/4/rotation = Quaternion(-0.066109896, -0.012948995, 0.20640269, 0.9761454)
+bones/4/rotation = Quaternion(-0.15029374, -0.03464526, 0.43939948, 0.8849517)
 bones/4/scale = Vector3(1, 0.9999999, 1)
 bones/5/name = "Bone.002.R"
 bones/5/parent = 0
@@ -152,56 +152,56 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(0.98613924, 0.16462886, -0.020659726, -0.1617069, 0.92573625, -0.3418527, -0.037153367, 0.34045514, 0.93952644, 1.1175871e-08, 0.15175591, -1.4901161e-08)
 bones/6/enabled = true
 bones/6/position = Vector3(1.1175871e-08, 0.15175591, -1.4901161e-08)
-bones/6/rotation = Quaternion(0.16068804, 0.015631335, -0.119770996, 0.9795867)
+bones/6/rotation = Quaternion(0.046765897, 0.10537042, -0.4031992, 0.9078218)
 bones/6/scale = Vector3(1, 0.99999994, 1)
 bones/7/name = "Bone.004.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.97264785, 0.2316401, 0.017293824, -0.23228031, 0.9703934, 0.06619815, -0.0014476675, -0.068404496, 0.99765664, 1.6763806e-08, 0.40379927, 3.7252903e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(1.6763806e-08, 0.40379927, 3.7252903e-09)
-bones/7/rotation = Quaternion(-0.1735175, 0.040686373, -0.50335634, 0.84549916)
+bones/7/rotation = Quaternion(-0.033902913, 0.0047205333, -0.1168495, 0.99255955)
 bones/7/scale = Vector3(1, 0.9999998, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 0
 bones/8/rest = Transform3D(-0.06258166, 0.1832292, 0.9810763, 0.8092706, -0.5659766, 0.15732616, 0.58409303, 0.8038017, -0.11286226, -7.1054265e-15, -1.4901161e-08, 2.9802322e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-7.1054265e-15, -1.4901161e-08, 2.9802322e-08)
-bones/8/rotation = Quaternion(0.6658462, 0.2968057, 0.6657304, 0.15924205)
+bones/8/rotation = Quaternion(0.585658, 0.4855479, 0.5436303, 0.3545617)
 bones/8/scale = Vector3(1, 0.9999998, 1)
 bones/9/name = "Bone.006.L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(-0.7454703, -0.5428174, 0.38681144, 0.58253807, -0.8126113, -0.017668866, 0.32391822, 0.21216084, 0.9219895, 0, 0.4901755, -1.0768417e-08)
 bones/9/enabled = true
 bones/9/position = Vector3(0, 0.4901755, -1.0768417e-08)
-bones/9/rotation = Quaternion(0.1249281, -0.08833318, 0.7177654, 0.67926663)
+bones/9/rotation = Quaternion(0.17788126, 0.017855735, 0.8976717, 0.40277147)
 bones/9/scale = Vector3(0.99999976, 1, 0.99999994)
 bones/10/name = "Bone.007.L"
 bones/10/parent = 9
 bones/10/rest = Transform3D(-0.34610313, 0.7203554, 0.6010829, -0.7203557, -0.61450785, 0.32166418, 0.60108286, -0.32166445, 0.73159516, -1.8626451e-08, 0.40143865, 1.4901161e-08)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8626451e-08, 0.40143865, 1.4901161e-08)
-bones/10/rotation = Quaternion(0.31577715, -0.029457584, 0.67186856, -0.66933525)
+bones/10/rotation = Quaternion(0.36633652, -1.2758574e-07, 0.82039714, -0.4390286)
 bones/10/scale = Vector3(1.0000001, 0.9999999, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 0
 bones/11/rest = Transform3D(-0.062580824, -0.1832301, -0.9810761, -0.80927056, -0.56597686, 0.15732601, -0.5840932, 0.80380166, -0.11286342, -7.1054265e-15, -1.4901161e-08, 2.9802322e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(-7.1054265e-15, -1.4901161e-08, 2.9802322e-08)
-bones/11/rotation = Quaternion(0.58441585, -0.4874447, -0.5419301, 0.35660577)
+bones/11/rotation = Quaternion(0.65504134, -0.33638138, -0.6466359, 0.19907446)
 bones/11/scale = Vector3(1, 1.0000001, 1)
 bones/12/name = "Bone.006.R"
 bones/12/parent = 11
 bones/12/rest = Transform3D(-0.7454698, 0.54281753, -0.38681158, -0.582538, -0.81261104, -0.017669003, -0.32391825, 0.21216089, 0.9219895, -3.7252903e-09, 0.49017552, -6.693881e-09)
 bones/12/enabled = true
 bones/12/position = Vector3(-3.7252903e-09, 0.49017552, -6.693881e-09)
-bones/12/rotation = Quaternion(-0.15761812, -0.027993731, 0.8333424, -0.52906847)
+bones/12/rotation = Quaternion(-0.14099708, -0.06029915, 0.77598524, -0.6118257)
 bones/12/scale = Vector3(0.99999934, 0.99999994, 1)
 bones/13/name = "Bone.007.R"
 bones/13/parent = 12
 bones/13/rest = Transform3D(-0.34610245, -0.7203557, -0.601083, 0.72035587, -0.6145075, 0.32166448, -0.601083, -0.32166478, 0.73159486, 2.2351742e-08, 0.40143862, 2.9802322e-08)
 bones/13/enabled = true
 bones/13/position = Vector3(2.2351742e-08, 0.40143862, 2.9802322e-08)
-bones/13/rotation = Quaternion(-0.3546789, -0.008528734, 0.7840689, 0.50927997)
+bones/13/rotation = Quaternion(-0.3072598, -0.033171497, 0.6483432, 0.6958033)
 bones/13/scale = Vector3(1.0000001, 1, 0.9999999)
 
 [node name="demon_low_Plane" type="MeshInstance3D" parent="goose/Armature/Skeleton3D" unique_id=437161366]
@@ -217,6 +217,8 @@ transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, 0.03, 0, -0.03, -1.311341
 mesh = ExtResource("2_j0qhh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="goose" unique_id=541307050]
+deterministic = true
+reset_on_save = false
 libraries/walk_cycle = SubResource("AnimationLibrary_anvr3")
 speed_scale = 2.0
 

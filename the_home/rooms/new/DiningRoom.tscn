@@ -123,6 +123,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.412372, 0.5470513, -1.14238
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08507776, -0.27871704, 0.08278489)
 shape = SubResource("BoxShape3D_tlqxu")
 
+[node name="StaticBody3D9" type="StaticBody3D" parent="BODIES" unique_id=451527102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4434359, 0.5470513, -9.998514)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BODIES/StaticBody3D9" unique_id=1110242700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08507776, -0.27871704, 0.08278489)
+shape = SubResource("BoxShape3D_tlqxu")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="BODIES" unique_id=1759044482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6367954, 0.5470513, -7.9862895)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BODIES/StaticBody3D10" unique_id=392895173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08507776, -0.27871704, 0.08278489)
+shape = SubResource("BoxShape3D_tlqxu")
+
 [node name="StaticBody3D8" type="StaticBody3D" parent="BODIES" unique_id=1047362310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5590386, 0.5470513, -1.1423869)
 
