@@ -14,7 +14,8 @@ enum DeviceID {KYBRD, MSBTN, JYBTN, JYAXS}
 @onready var Area: Area3D = $Area3D
 @onready var Flashlight: SpotLight3D = $SpotLight3D
 
-var allow_inputs = false
+var allow_inputs := false
+var allow_movement := false
 var flashlight_velocity := Vector2.ZERO
 var NearbyThings: Array[Interactable]
 
@@ -117,6 +118,8 @@ func _physics_process(delta):
    ## NO JUMP
    #if Input.is_action_just_pressed("jump") and is_on_floor(): velocity.y = JUMP_VELOCITY
    
+   if not allow_movement: return
+   
    var input_dir = Input.get_vector("left", "right", "up", "down")
    var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
    if direction:
@@ -127,3 +130,8 @@ func _physics_process(delta):
       velocity.z = move_toward(velocity.z, 0, SPEED)
 
    move_and_slide()
+
+func is_at_door() -> bool:
+   var is_at_door = false
+   if self.global_position.distance_to(self.get_parent().global_position) < 1.0: is_at_door = true
+   return is_at_door
