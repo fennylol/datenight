@@ -15,6 +15,7 @@ config/tags=PackedStringArray("achievable", "game", "gamejam")
 run/main_scene="uid://dkpwxgc8fnss7"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/image="uid://152qygt21os6"
+config/icon="uid://clc1rkmrnspn6"
 
 [display]
 
