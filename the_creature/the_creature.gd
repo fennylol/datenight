@@ -15,6 +15,8 @@ var NearbyThings: Array[Interactable]
 var Anger: float = 0.0
 var FleeTimer: float = 0.0
 var FLEE_TIME: float = 2.5
+var attack_check: float = 10.0
+const TIME_BETWEEN_ATTACK_ATTEMPTS: float = 10.0
 
 enum MovementStates {NORMAL, FLEEING, HUNTING}
 var MovementState := MovementStates.NORMAL
@@ -46,15 +48,33 @@ func _process(delta: float) -> void:
       Anger = 0
    
    ## CHOOSE TARGET
-   if current_target == null: select_new_target()
+   if current_target == null: 
+      ## determine agression based on time and lamps lit
+      var time_aggression = ( floor( ( knowledge.game_time / get_parent().SECONDS_TO_GAME_HOUR ) * 4 ) / 4 )
+      var light_aggression = knowledge.lamp_list.size() - knowledge.lit_lamp_list.size()
+      var total_aggression = float( time_aggression * light_aggression ) / 70.0
+      ## roll every 10 seconds
+      if attack_check <= 0.0:
+         var roll_for_attack = randf()
+         if roll_for_attack < total_aggression: MovementState = MovementStates.HUNTING
+         attack_check = TIME_BETWEEN_ATTACK_ATTEMPTS
+      else:
+         attack_check -= delta
+      
+      select_new_target()
 
 func spotted() -> void:
    if MovementState == MovementStates.FLEEING or MovementState == MovementStates.HUNTING: return
    MovementState = MovementStates.FLEEING
    FleeTimer = FLEE_TIME
    Anger += 1
+   if Anger >= 2: 
+      MovementState = MovementStates.HUNTING
+      print("HUNTING with anger: ", Anger)
+   else:
+      print("FLEEING with anger: ", Anger)
    select_new_target()
-   print("FLEEING with anger: ", Anger)
+   
  
 func select_new_target() -> void:
    match MovementState:

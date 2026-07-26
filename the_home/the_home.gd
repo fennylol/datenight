@@ -35,6 +35,7 @@ func _ready() -> void:
    HUD_TEXT.visible = false
    COUNTDOWN.visible = false
    CREDITS.visible = false
+   CREDITS.get_child(1).texture = load("res://RAWS/DateNight_banner.png")
    Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
    RAIN_SOUND.finished.connect(RAIN_SOUND.play)
 
@@ -207,7 +208,7 @@ func _attempt_game_end(delta : float):
          CREDITS.visible = true
          Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
          gameend_level += 1
-         animation_time = 10.0
+         animation_time = 8.0
    elif gameend_level == GameEnd.CREDITS:
       if animation_time > 0.0: return
       else: CREDITS.position.y -= delta * 50
