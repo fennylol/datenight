@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://w7p52wglmeuu"]
+
+[ext_resource type="Script" uid="uid://dap08oa4e615a" path="res://the_creature/detour_critter.gd" id="1_2xocu"]
+[ext_resource type="Texture2D" uid="uid://dduey3jktrxsa" path="res://the_creature/creature.png" id="2_vhe8n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y6tuk"]
+radius = 0.15
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0qhh"]
+albedo_texture = ExtResource("2_vhe8n")
+uv1_scale = Vector3(-1.995, -1.995, -1.995)
+uv1_offset = Vector3(0.15, 0, 0)
+
+[sub_resource type="PrismMesh" id="PrismMesh_le212"]
+size = Vector3(0.5, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dxmee"]
+radius = 1.25
+
+[node name="DetourCritter" type="CharacterBody3D" unique_id=1327436015]
+script = ExtResource("1_2xocu")
+movement_speed = 5.0
+cone_reach = 8.0
+metadata/_custom_type_script = "uid://dap08oa4e615a"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1081459947]
+path_desired_distance = 0.25
+target_desired_distance = 0.5
+debug_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2098085833]
+shape = SubResource("CapsuleShape3D_y6tuk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1050878201]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.34037086)
+material_override = SubResource("StandardMaterial3D_j0qhh")
+mesh = SubResource("PrismMesh_le212")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=824825493]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=997725454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5815842, 0)
+shape = SubResource("CylinderShape3D_dxmee")
