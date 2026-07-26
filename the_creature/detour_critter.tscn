@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dap08oa4e615a" path="res://the_creature/detour_critter.gd" id="1_2xocu"]
 [ext_resource type="ArrayMesh" uid="uid://djtwnsanl0bok" path="res://the_creature/Goose-nodoxi/happiestmask.obj" id="2_j0qhh"]
-[ext_resource type="Texture2D" uid="uid://dduey3jktrxsa" path="res://the_creature/creature.png" id="2_vhe8n"]
 [ext_resource type="Animation" uid="uid://decaxw5p4o781" path="res://the_creature/animations/walk.res" id="3_le212"]
 [ext_resource type="AudioStream" uid="uid://dkayme7oxvqbm" path="res://RAWS/BIGevilsteps.wav" id="5_le212"]
 
@@ -84,25 +83,19 @@ _data = {
 radius = 0.15
 height = 1.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcer5"]
-albedo_texture = ExtResource("2_vhe8n")
-uv1_scale = Vector3(-1.995, -1.995, -1.995)
-uv1_offset = Vector3(0.15, 0, 0)
-
-[sub_resource type="PrismMesh" id="PrismMesh_is5vu"]
-size = Vector3(0.5, 1, 1)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_e1npf"]
 radius = 1.25
 
 [node name="DetourCritter" type="CharacterBody3D" unique_id=1327436015]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("1_2xocu")
 cone_reach = 8.0
 ring_padding = 0.0
 metadata/_custom_type_script = "uid://dap08oa4e615a"
 
 [node name="goose" type="Node3D" parent="." unique_id=821922340]
-transform = Transform3D(-1, -2.7015124e-08, 8.3144e-08, 0, 0.95105654, 0.309017, -8.742278e-08, 0.309017, -0.95105654, 0, -0.8, 0)
+transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 0, -0.8, 0)
 
 [node name="Armature" type="Node3D" parent="goose" unique_id=1346472874]
 
@@ -231,12 +224,6 @@ target_desired_distance = 0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1407647455]
 shape = SubResource("CapsuleShape3D_j0quj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1827091360]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.34037086)
-visible = false
-material_override = SubResource("StandardMaterial3D_jcer5")
-mesh = SubResource("PrismMesh_is5vu")
-
 [node name="Area3D" type="Area3D" parent="." unique_id=1365297644]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=758389763]
@@ -244,6 +231,9 @@ shape = SubResource("CylinderShape3D_e1npf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1820323153]
 stream = ExtResource("5_le212")
-volume_db = -11.0
-pitch_scale = 3.0
+attenuation_model = 1
+volume_db = 10.0
+max_db = 6.0
+pitch_scale = 2.0
 autoplay = true
+max_distance = 10.0

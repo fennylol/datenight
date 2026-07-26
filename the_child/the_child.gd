@@ -14,11 +14,13 @@ enum DeviceID {KYBRD, MSBTN, JYBTN, JYAXS}
 @onready var Area: Area3D = $Area3D
 @onready var Flashlight: SpotLight3D = $SpotLight3D
 @onready var FlashlightArea: Area3D = $SpotLight3D/Area3D
+@onready var SafetyArea: Area3D = $SafeDist
 
 var allow_inputs := false
 var allow_movement := false
 var flashlight_velocity := Vector2.ZERO
 var NearbyThings: Array[Interactable]
+var SafetyThings: Array[Light]
 
 # ╭----------------╮
 # |    UTILITY     |
@@ -51,8 +53,9 @@ func _ready():
    
    Area.body_entered.connect(_on_body_entered)
    Area.body_exited.connect(_on_body_exited)
+   SafetyArea.body_entered.connect(_on_body_entered_safety_area)
+   SafetyArea.body_exited.connect(_on_body_exited_safety_area)
    FlashlightArea.body_entered.connect(_on_body_entered_flashlight)
-   FlashlightArea.body_exited.connect(_on_body_exited_flashlight)
 
 func _on_body_entered(body: Node3D) -> void:
    var parent := body.get_parent()
@@ -64,13 +67,20 @@ func _on_body_exited(body: Node3D) -> void:
    if parent and parent is Interactable:
       NearbyThings.erase(parent)
     
+func _on_body_entered_safety_area(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Light and not SafetyThings.has(parent):
+      SafetyThings.append(parent)
+
+func _on_body_exited_safety_area(body: Node3D) -> void:
+   var parent := body.get_parent()
+   if parent and parent is Light:
+      SafetyThings.erase(parent)
+
 func _on_body_entered_flashlight(body: Node3D) -> void:
    if body is TheCreature:
-      print("CREATURE SPOTTED")
+      body.spotted()
       
-func _on_body_exited_flashlight(body: Node3D) -> void:
-   if body is TheCreature:
-      print("CREATURE OUT OF SIGHT")
 
 
 # mouse

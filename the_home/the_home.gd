@@ -2,8 +2,8 @@ extends Node3D
 class_name TheHome
 
 @onready var THE_CHILD: TheChild = $TheChild
-#@onready var THE_CREATURE: TheCreature = $TheCreature
-@onready var THE_CREATURE: TheDetourCreature = $DetourCritter
+@onready var THE_CREATURE: TheCreature = $TheCreature
+#@onready var THE_CREATURE: TheDetourCreature = $DetourCritter
 @onready var ROOMS: Node3D = $NavigationRegion3D/Rooms
 @onready var INTERFACE: Control = $Interface
 @onready var EYELIDS: Control = $Interface/WAKE_UP
@@ -14,6 +14,7 @@ class_name TheHome
 
 @onready var RAIN_SOUND: AudioStreamPlayer = $AudioStreamPlayer
 @onready var THUNDER_SOUND: AudioStreamPlayer = $AudioStreamPlayer2
+@onready var LIGHTNING: DirectionalLight3D = $DirectionalLight3D
 var TimeSinceThunder: float = 0
 const THUNDER_GAP: float = 60
 
@@ -26,7 +27,7 @@ var gameend_level : int = 0
 enum GameEnd {NONE, ARRIVED, TODOOR, WAIT, SUCCESS, CREDITS}
 var gamereset_level : int = 0
 enum GameReset {NONE, EYELIDS, DREAM, SHOWCLOCK}
-const SECONDS_TO_GAME_HOUR : float = 5.0
+const SECONDS_TO_GAME_HOUR : float = 40.0
 const HOUR_DATE_NIGHT_ENDS : float = 5.0
 
 func _ready() -> void:

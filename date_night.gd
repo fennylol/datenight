@@ -1,4 +1,5 @@
 extends Node3D
+class_name DateNight
 
 @onready var MAIN_SCENE = preload("res://the_home/the_home.tscn")
 

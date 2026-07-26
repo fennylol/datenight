@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://0182w1pbsrsu" path="res://the_child/the_child.gd" id="1_jl4h2"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jl4h2"]
-points = PackedVector3Array(3.3670754, -3.7162642, -0.6044112, -3.5743978, -4.278651, -0.76574767, -3.601893, -4.3112383, 0.70868576, 0.035714265, 4.378775, 0.03571415, 1.5706841, -4.465446, 3.3844707, 0.7086859, -4.3112383, -3.601893, -1.6953632, -4.26182, 3.231766, -1.8247763, -4.253502, -3.153397, 3.277947, -4.3225536, 1.6568304, 2.6591337, -4.1974297, -2.4559445, -0.09838179, -4.2952785, 3.6598551, -3.0337489, -4.271794, 2.0375686, -2.8857627, -4.2505183, -2.2222695, -0.76637846, -4.278247, -3.5740564, 3.6592524, -4.293723, -0.097650215, 1.7919238, -4.322847, -3.2067385, -0.09476574, 4.1794515, -0.09407548, 2.717394, -4.2906456, 2.4494388, 3.3531039, -4.2459927, -1.4234041, 0.03571426, 4.253073, -0.09636175, -0.09701783, 4.251589, 0.03571415, 3.5322285, -4.3032727, 0.9763177, -2.456486, -4.197996, 2.6589735, -1.0312412, -4.26918, 3.503848, 0.80847883, -3.867003, 3.3870864, -3.2959511, -4.2650995, -1.5628371, -3.3425972, -4.324815, 1.5223427, 2.1365314, -4.200761, 2.9235573, -2.2480717, -3.806086, -2.6276965, -0.22176667, -3.4786923, -3.3135817, -3.3130784, -3.4774628, -0.22099486, 3.0657382, -4.2151113, -1.9399645)
+points = PackedVector3Array(2.921918, -2.8988173, 0.9422935, -0.56661296, -2.90334, -3.0205557, -0.94275993, -2.8996773, -2.92222, 0.090709254, 2.7536976, -0.0906915, -1.8586588, -2.858708, 2.4160163, -3.020754, -2.9035292, -0.5659479, 2.3468964, -2.8874712, -1.9712423, 0.94275993, -2.8996773, 2.92222, -2.9223492, -2.899823, 0.9426231, -0.090709254, 2.7536976, 0.0906915, -2.4162388, -2.858414, -1.8581022, 0.94276345, -2.899688, -2.9222307, 3.0207536, -2.9035287, -0.5659478, -0.566613, -2.9033406, 3.0205562, 2.04859, -2.5619805, 2.0481887, -0.090709254, 2.7536976, -0.0906915, 0.090709254, 2.7536976, 0.0906915, -1.8586504, -2.858695, -2.4160054, -2.4162278, -2.8584008, 1.8580937, 1.6104492, -2.5733485, -2.4149208, 2.8074784, -2.878526, -1.2164532, 1.5837672, -2.8659286, 2.608356, 0.27048334, -2.056042, 2.6188753, 0.27048334, -2.0560422, -2.6188755, -2.6189225, -2.05612, 0.2704408, 2.6184554, -2.055218, 0.27039254, 2.6084027, -2.8654227, 1.5831755, -1.2169969, -2.8792431, 2.807634, -2.8074787, -2.8785262, -1.2164532, -1.4079355, -2.88706, -2.7218287, -2.4070606, -2.2083588, 1.2476957, 1.4079356, -2.8870602, -2.721829)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bsava"]
 top_radius = 0.0
-bottom_radius = 3.75
-height = 9.0
+bottom_radius = 3.125
+height = 6.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_r2f68"]
 radius = 0.2
@@ -20,6 +20,9 @@ height = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bsava"]
 radius = 1.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c1rww"]
+radius = 3.0
 
 [node name="TheChild" type="CharacterBody3D" unique_id=1674126972]
 script = ExtResource("1_jl4h2")
@@ -43,12 +46,12 @@ spot_angle_attenuation = 2.0
 [node name="Area3D" type="Area3D" parent="SpotLight3D" unique_id=1785392472 groups=["gaze_cone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SpotLight3D/Area3D" unique_id=1641240762]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.75, -4.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpotLight3D/Area3D" unique_id=1057828605]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.75, -3)
 shape = SubResource("ConvexPolygonShape3D_jl4h2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D" unique_id=1352518616]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -4.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -3)
 visible = false
 mesh = SubResource("CylinderMesh_bsava")
 
@@ -65,3 +68,9 @@ shape = SubResource("CapsuleShape3D_invmk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1803183736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79663086, 0)
 shape = SubResource("CylinderShape3D_bsava")
+
+[node name="SafeDist" type="Area3D" parent="." unique_id=1470813985]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SafeDist" unique_id=1406617807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098573, 0)
+shape = SubResource("CylinderShape3D_c1rww")
