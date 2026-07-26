@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dbkcvq4fhuc0p"]
 
 [ext_resource type="Script" uid="uid://dpw8i4o3jh3g5" path="res://the_creature/the_creature.gd" id="1_r73wq"]
-[ext_resource type="Texture2D" uid="uid://dduey3jktrxsa" path="res://the_creature/creature.png" id="2_cjumy"]
 [ext_resource type="ArrayMesh" uid="uid://djtwnsanl0bok" path="res://the_creature/Goose-nodoxi/happiestmask.obj" id="3_2edoy"]
 [ext_resource type="Animation" uid="uid://decaxw5p4o781" path="res://the_creature/animations/walk.res" id="3_7vfdu"]
 [ext_resource type="AudioStream" uid="uid://dkayme7oxvqbm" path="res://RAWS/BIGevilsteps.wav" id="5_2edoy"]
@@ -83,14 +82,6 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bsava"]
 radius = 0.15
 height = 0.57507324
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r73wq"]
-albedo_texture = ExtResource("2_cjumy")
-uv1_scale = Vector3(-1.995, -1.995, -1.995)
-uv1_offset = Vector3(0.15, 0, 0)
-
-[sub_resource type="PrismMesh" id="PrismMesh_h656q"]
-size = Vector3(0.5, 1, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r73wq"]
 radius = 1.25
@@ -228,12 +219,6 @@ target_desired_distance = 0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1900019993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7600703, 0)
 shape = SubResource("CapsuleShape3D_bsava")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1850406706]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.34037086)
-visible = false
-material_override = SubResource("StandardMaterial3D_r73wq")
-mesh = SubResource("PrismMesh_h656q")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1203253795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
