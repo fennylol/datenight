@@ -24,6 +24,9 @@ radius = 1.25
 [node name="TheChild" type="CharacterBody3D" unique_id=1674126972]
 script = ExtResource("1_jl4h2")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=821297282]
+current = true
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1647414109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 current = true

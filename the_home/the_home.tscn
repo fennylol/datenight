@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b1w66ao2woek4" path="res://the_home/rooms/new/Stairway.tscn" id="11_8osdg"]
 [ext_resource type="PackedScene" uid="uid://g5aicb6rqfip" path="res://the_home/rooms/new/Study.tscn" id="12_nej5g"]
 [ext_resource type="FontFile" uid="uid://sdwgpojn51cy" path="res://_assetpacks/Digital7-Alexander Sizenko/digital-7 (mono).ttf" id="14_gp5so"]
-[ext_resource type="Texture2D" uid="uid://cny7rkoprk8p5" path="res://RAWS/DateNight_banner.png" id="15_1ncg2"]
+[ext_resource type="AudioStream" uid="uid://cpe0uxyvdjiyn" path="res://RAWS/rain.wav" id="15_1ncg2"]
+[ext_resource type="AudioStream" uid="uid://diyqexg4jg2x8" path="res://RAWS/thunder.mp3" id="16_ckpp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h656q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -301,7 +302,6 @@ offset_left = -408.0
 offset_top = -80.0
 offset_right = 408.0
 offset_bottom = 80.0
-texture = ExtResource("15_1ncg2")
 expand_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="Interface" unique_id=1832927047]
@@ -317,3 +317,12 @@ grow_horizontal = 0
 texture = SubResource("ViewportTexture_c1rww")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1423960268]
+stream = ExtResource("15_1ncg2")
+volume_db = -3.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=859934079]
+stream = ExtResource("16_ckpp3")
+volume_db = -0.165

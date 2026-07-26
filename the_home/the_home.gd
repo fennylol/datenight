@@ -1,4 +1,5 @@
 extends Node3D
+class_name TheHome
 
 @onready var THE_CHILD: TheChild = $TheChild
 #@onready var THE_CREATURE: TheCreature = $TheCreature
@@ -11,6 +12,11 @@ extends Node3D
 @onready var CREDITS : Control = $Interface/CREDITS
 @onready var WORLDPROMPTS : Node3D = $WorldPrompts
 
+@onready var RAIN_SOUND: AudioStreamPlayer = $AudioStreamPlayer
+@onready var THUNDER_SOUND: AudioStreamPlayer = $AudioStreamPlayer2
+var TimeSinceThunder: float = 0
+const THUNDER_GAP: float = 60
+
 var last_room: Room
 var game_time : float = 0.0
 var animation_time : float = 0.5
@@ -20,7 +26,7 @@ var gameend_level : int = 0
 enum GameEnd {NONE, ARRIVED, TODOOR, WAIT, SUCCESS, CREDITS}
 var gamereset_level : int = 0
 enum GameReset {NONE, EYELIDS, DREAM, SHOWCLOCK}
-const SECONDS_TO_GAME_HOUR : float = 40.0
+const SECONDS_TO_GAME_HOUR : float = 5.0
 const HOUR_DATE_NIGHT_ENDS : float = 5.0
 
 func _ready() -> void:
@@ -29,10 +35,18 @@ func _ready() -> void:
    COUNTDOWN.visible = false
    CREDITS.visible = false
    Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+   RAIN_SOUND.finished.connect(RAIN_SOUND.play)
 
 func _process(delta: float) -> void:
    ## ADVANCE GAME TIME. FIND CURRENT HOUR. FIND COUNTDOWN. SET CLOCK.
    game_time += delta
+   TimeSinceThunder += delta
+   if TimeSinceThunder > THUNDER_GAP:
+      if randi() > 0.999:
+         THUNDER_SOUND.pitch_scale = randf_range(0.6, 1.0)
+         THUNDER_SOUND.play()
+         TimeSinceThunder = 0.0
+   
    var current_hour = ( floor( ( game_time / SECONDS_TO_GAME_HOUR ) * 4 ) / 4 )
    var countdown_hour = str(int(floor(HOUR_DATE_NIGHT_ENDS-current_hour)))
    var countdown_minute = ":" + str(int((HOUR_DATE_NIGHT_ENDS-current_hour-floor(HOUR_DATE_NIGHT_ENDS-current_hour))*60))
@@ -53,7 +67,7 @@ func _process(delta: float) -> void:
          lights_array.append(light)
          if light.Powered: lit_lights_array.append(light)
    packet.game_time = game_time
-   packet.child_location = THE_CHILD.position
+   packet.child = THE_CHILD
    packet.lamp_list = lights_array
    packet.lit_lamp_list = lit_lights_array
    THE_CREATURE.recieve_information(packet)

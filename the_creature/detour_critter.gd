@@ -5,6 +5,8 @@ class_name TheDetourCreature
 @export var evade_speed: float = 5.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var Area: Area3D = $Area3D
+@onready var Sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var knowledge : InfoPacket
 var current_target : Node3D
@@ -12,7 +14,7 @@ var angle_to_target : float
 var NearbyThings: Array[Interactable]
 #var eagerness : float
 
-enum MovementStates {NORMAL, EVADING, PINNED}
+enum MovementStates {NORMAL, EVADING, HUNTING}
 var MovementState := MovementStates.NORMAL
 var OldTarget := Vector3.ZERO
 
@@ -34,13 +36,6 @@ var OldTarget := Vector3.ZERO
 ## How long the creature must be clear of the cone before it stops evading.
 ## This is the hysteresis -- without it, it jitters on the cone boundary.
 @export var evade_clear_time: float = 0.3
-## PINNED fallback (no legal detour/escape at all): concentric rings to
-## search for a point outside the player's line of sight, checked cheaply
-## (endpoint visibility only, not the full cone-shape + path-leg search).
-## Needs to reach past `cone_reach + ring_padding`, since PINNED is only
-## entered after that ring already failed -- a long hallway can put the
-## entire corridor, well past the normal ring, inside the cone.
-@export var pinned_search_radii: PackedFloat32Array = PackedFloat32Array([12.0, 20.0, 32.0])
 ## What a line-of-sight ray from the player must hit to count as "wall".
 ## Defaults to the everything-is-layer-1 convention this project already
 ## uses elsewhere (see `_point_query.collision_mask` below).
@@ -66,7 +61,8 @@ func _ready() -> void:
    #AnimPlayer.animation_finished.connect(func(): AnimPlayer.play("walk_cycle/walk"))
    AnimPlayer.play("walk_cycle/walk")
    AnimPlayer.current_animation = "walk_cycle/walk"
-   
+   Sounds.finished.connect(Sounds.play)
+
    if gaze_cone == null:
       gaze_cone = get_tree().get_first_node_in_group("gaze_cone") as Area3D
    if gaze_cone == null:
@@ -96,19 +92,24 @@ func _process(_delta: float) -> void:
       current_target = null
 
    ## CHOOSE TARGET
-   if current_target == null: select_new_target()
+   if current_target == null:
+      if not knowledge == null and knowledge.lit_lamp_list.size() > (knowledge.lamp_list.size()/2) and floori(knowledge.game_time/TheHome.SECONDS_TO_GAME_HOUR) >= 1: 
+         MovementState = MovementStates.HUNTING
+         print("HUNTING")
+      select_new_target()
 
 func select_new_target() -> void:
    match MovementState:
       MovementStates.NORMAL:
          if knowledge == null: return
-         current_target = knowledge.lamp_list.pick_random() if knowledge.lit_lamp_list.is_empty() or Benevolent else knowledge.lit_lamp_list.pick_random()
+         current_target = knowledge.lamp_list.pick_random()
          if current_target == null: return
          final_goal = current_target.global_position
          has_detour = false
          _replan()
-      MovementStates.EVADING, MovementStates.PINNED:
-         pass
+      MovementStates.HUNTING:
+         if knowledge == null: return
+         current_target = knowledge.child
 
 
 func _physics_process(delta: float):
@@ -126,7 +127,7 @@ func _physics_process(delta: float):
          _replan_timer = 0.0
       return
 
-   var speed := movement_speed if MovementState == MovementStates.NORMAL else evade_speed
+   var speed := evade_speed if MovementState == MovementStates.EVADING else movement_speed
 
    var next_path_position: Vector3 = navigation_agent.get_next_path_position()
    var new_velocity: Vector3 = global_position.direction_to(next_path_position) * speed
@@ -172,19 +173,7 @@ func _update_gaze(delta: float) -> void:
          else:
             _clear_time += delta
             if _clear_time >= evade_clear_time:
-               _resume_normal()
-
-      MovementStates.PINNED:
-         if inside:
-            _clear_time = 0.0
-            ## Still haven't outrun it -- pick a fresh flee point, not a
-            ## full ring search. PINNED stays cheap by design.
-            if navigation_agent.is_navigation_finished():
-               _flee()
-         else:
-            _clear_time += delta
-            if _clear_time >= evade_clear_time:
-               _resume_normal()
+               _exit_evading()
 
 
 func _enter_evading() -> void:
@@ -195,72 +184,7 @@ func _enter_evading() -> void:
    _pick_escape_point()
 
 
-## Last resort when NORMAL's ring search or EVADING's escape search both
-## come up empty -- fully boxed in. Skip cone testing and the ring/path
-## queries entirely and hunt for a spot the player can't see instead; it's
-## the cheap analog to the real detour search, meant for a case that
-## should be rare and transient.
-func _enter_pinned() -> void:
-   MovementState = MovementStates.PINNED
-   OldTarget = final_goal
-   has_detour = false
-   _clear_time = 0.0
-   _flee()
-
-
-func _flee() -> void:
-   var map := navigation_agent.get_navigation_map()
-
-   var hidden := _find_pinned_escape(map)
-   if hidden != Vector3.INF:
-      set_movement_target(hidden)
-      return
-
-   ## Nowhere searched is hidden -- a strict dead end has no point to hide
-   ## behind at all, and heading for `final_goal` isn't reliable here either
-   ## (it may already be behind the player, may equal where we're
-   ## standing, or may just not be what pulls the agent out of the pocket).
-   ## Target the player directly instead: it's guaranteed to be on the only
-   ## path out of the dead end, so it's the one target that's certain to
-   ## get the navigation agent moving rather than sitting idle.
-   set_movement_target(gaze_cone.global_position)
-
-
-## Concentric rings around the player. Every sample on a given ring is
-## (roughly) equally far from the player, so the ring itself is the
-## "furthest from player" tier; the winner within it is whichever sample is
-## closest to us. A farther ring with any hidden point always beats a
-## nearer one, matching the requested preference order -- independent of
-## what order `pinned_search_radii` happens to be listed in.
-func _find_pinned_escape(map: RID) -> Vector3:
-   var origin := gaze_cone.global_position
-   var best := Vector3.INF
-   var best_radius := -1.0
-
-   for radius in pinned_search_radii:
-      if radius <= best_radius: continue
-
-      var band_best := Vector3.INF
-      var band_best_self_dist := INF
-      for i in ring_samples:
-         var ang := TAU * float(i) / float(ring_samples)
-         var p := origin + Vector3(cos(ang), 0.0, sin(ang)) * radius
-         p = NavigationServer3D.map_get_closest_point(map, p)
-         if _has_line_of_sight(p): continue
-
-         var self_dist := global_position.distance_to(p)
-         if self_dist < band_best_self_dist:
-            band_best = p
-            band_best_self_dist = self_dist
-
-      if band_best != Vector3.INF:
-         best = band_best
-         best_radius = radius
-
-   return best
-
-
-func _resume_normal() -> void:
+func _exit_evading() -> void:
    MovementState = MovementStates.NORMAL
    _replan_timer = 0.0
    if current_target != null:
@@ -286,8 +210,9 @@ func _pick_escape_point() -> void:
             set_movement_target(p)
             return
 
-   ## Boxed in on every side -- stop the expensive search and just run.
-   _enter_pinned()
+   ## Boxed in on every side -- stop evading and get back to work. _replan
+   ## will also fail to find a detour and push straight for the goal.
+   _exit_evading()
 
 
 func _replan() -> void:
@@ -311,8 +236,10 @@ func _replan() -> void:
 
    var found := _find_detour(map)
    if found == Vector3.INF:
-      ## No legal detour exists -- stop searching and run.
-      _enter_pinned()
+      ## No legal detour exists -- give up on avoidance and push straight
+      ## for the goal rather than freezing in place.
+      has_detour = false
+      set_movement_target(final_goal)
       return
 
    detour_point = found
