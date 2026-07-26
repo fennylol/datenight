@@ -82,7 +82,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bsava"]
 radius = 0.15
-height = 1.5
+height = 0.57507324
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r73wq"]
 albedo_texture = ExtResource("2_cjumy")
@@ -227,6 +227,7 @@ target_desired_distance = 0.5
 debug_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1900019993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7600703, 0)
 shape = SubResource("CapsuleShape3D_bsava")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1850406706]
@@ -245,8 +246,14 @@ shape = SubResource("CylinderShape3D_r73wq")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1327281709]
 stream = ExtResource("5_2edoy")
 attenuation_model = 1
-volume_db = 10.0
 max_db = 6.0
 pitch_scale = 2.0
 autoplay = true
 max_distance = 10.0
+
+[node name="Hunt" type="AudioStreamPlayer3D" parent="." unique_id=1999541587]
+volume_db = -5.0
+max_db = 0.0
+
+[node name="Kill" type="AudioStreamPlayer3D" parent="." unique_id=1862237160]
+volume_db = -20.0

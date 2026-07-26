@@ -1,12 +1,18 @@
 extends CharacterBody3D
 class_name TheCreature
 
+var HUNT_SPEED: float = 3
+var NORMAL_SPEED: float = 10
+var FLEE_SPEED: float = 15
+
 @export var movement_speed: float = 10.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var Area: Area3D = $Area3D
 @onready var AnimPlayer = $goose/AnimationPlayer
 @onready var MaskPivot = $goose/MaskPivot
 @onready var Sounds: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var HuntSounds: AudioStreamPlayer3D = $Hunt
+@onready var KillSounds: AudioStreamPlayer3D = $Kill
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var knowledge : InfoPacket
 var current_target : Node3D
@@ -19,7 +25,12 @@ var attack_check: float = 10.0
 const TIME_BETWEEN_ATTACK_ATTEMPTS: float = 10.0
 
 enum MovementStates {NORMAL, FLEEING, HUNTING}
-var MovementState := MovementStates.NORMAL
+var MovementState := MovementStates.NORMAL:
+   set(new_state):
+      MovementState = new_state
+      if new_state == MovementStates.HUNTING:
+         HuntSounds.stream = load("res://the_creature/sounds/hunt_0.mp3") if randf() > 0.5 else load("res://the_creature/sounds/hunt_1.mp3")
+         HuntSounds.play()
 var OldTarget := Vector3.ZERO
 
 @export var Benevolent: bool = false
@@ -40,6 +51,11 @@ func _process(delta: float) -> void:
       FleeTimer -= delta
       if FleeTimer < 0:
          MovementState = MovementStates.NORMAL
+   
+   match MovementState:
+      MovementStates.NORMAL: movement_speed = NORMAL_SPEED
+      MovementStates.FLEEING: movement_speed = FLEE_SPEED
+      MovementStates.HUNTING: movement_speed = HUNT_SPEED
    
    ## TURN OFF LAMP IF WITHIN RANGE
    if current_target is Light and NearbyThings.has(current_target):
@@ -119,16 +135,25 @@ func _physics_process(delta: float):
    if MovementState == MovementStates.HUNTING: select_new_target()
 
    var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-   if MovementState == MovementStates.HUNTING and position.distance_to(knowledge.child.position) < 3:
-      var safe: bool = false
-      for thing in knowledge.child.SafetyThings:
-         if thing is Light and knowledge.lit_lamp_list.has(thing):
-            MovementState = MovementStates.FLEEING
-            select_new_target()
-            safe = true
-      if not safe and position.distance_to(knowledge.child.position) < 1:
-         var grand_daddy = get_parent().get_parent()
-         if grand_daddy and grand_daddy is DateNight: grand_daddy.reset_game()
+   if MovementState == MovementStates.HUNTING: print(navigation_agent.get_path_length())
+   if MovementState == MovementStates.HUNTING and navigation_agent.get_path_length() < 7:
+      if not KillSounds.playing: 
+         var rand: int = randi_range(0, 2)
+         KillSounds.stream = load("res://the_creature/sounds/kill_" + str(rand) + ".mp3")
+         KillSounds.play()
+      if position.distance_to(knowledge.child.position) < 3:
+         var safe: bool = false
+         for thing in knowledge.child.SafetyThings:
+            if thing is Light and knowledge.lit_lamp_list.has(thing):
+               MovementState = MovementStates.FLEEING
+               select_new_target()
+               KillSounds.stop()
+               KillSounds.stream = load("res://the_creature/sounds/kill_abandon.mp3")
+               KillSounds.play()
+               safe = true
+         if not safe and position.distance_to(knowledge.child.position) < 1:
+            var grand_daddy = get_parent().get_parent()
+            if grand_daddy and grand_daddy is DateNight: grand_daddy.reset_game()
    
    var new_velocity: Vector3 = global_position.direction_to(next_path_position) * movement_speed
    if navigation_agent.avoidance_enabled:
