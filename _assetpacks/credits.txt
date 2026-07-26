@@ -12,3 +12,7 @@
 FONTS
 
 "Digital-7" by Alexander Sizenko (https://www.1001fonts.com/users/style-7/)
+
+MONSTER
+
+"Goose" (https://skfb.ly/6SYTy) by nodoxi (https://sketchfab.com/nodoxi)

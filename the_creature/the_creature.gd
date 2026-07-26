@@ -4,6 +4,8 @@ class_name TheCreature
 @export var movement_speed: float = 10.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var Area: Area3D = $Area3D
+@onready var AnimationPlayerNode = $goose/AnimationPlayer
+@onready var MaskPivot = $goose/MaskPivot
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var knowledge : InfoPacket
 var current_target : Node3D
